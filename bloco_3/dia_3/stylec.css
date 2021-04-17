@@ -8,4 +8,5 @@ li:hover {
 
 li:active {
     color: white;
+    font-family: helvetica;
 }
