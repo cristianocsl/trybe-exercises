@@ -10,7 +10,7 @@ h1 {
     width: 200px;
     align-items: center;
     list-style-type: none;
-    margin-left: auto;
+    margin-left: auto; /* margem esquerda 'auto'combinada com margem direita 'auto' para centralizar o bloco*/
     margin-right: auto;
   }
 
@@ -22,7 +22,8 @@ h1 {
     width: 300px;
     align-items: baseline;
     list-style-type: none;
-    display: inline-block;
+    display: inline-block; /*combina o segundo e o terceiro bloco com 'display: inline-block' 
+    para permanecerem com bloco na mesma linha*/
   }
 
   .third {
