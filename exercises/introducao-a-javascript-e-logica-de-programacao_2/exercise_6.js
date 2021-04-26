@@ -6,8 +6,8 @@ valor ímpar encontrado"*/
 let contador = 0;
 for (let index = 0; index < numbers.length; index += 1) {
         if (numbers[index] % 2 === 1) {
-        contador = contador += 1;
-    } else if (contador = 0) {
+        contador = contador + 1;
+    } else if (contador === 0) {
         console.log('Nenhum valor ímpar encontrado');
     }
     }
