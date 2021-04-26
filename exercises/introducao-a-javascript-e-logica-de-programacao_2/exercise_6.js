@@ -1,4 +1,4 @@
-let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+let numbers = [2, 4, 3, 19, 70, 8, 100, 2, 35, 27];
 /*Descubra quantos valores ímpares existem 
 no array e imprima o resultado. Caso não 
 exista nenhum, imprima a mensagem: "nenhum 
@@ -8,7 +8,8 @@ for (let index = 0; index < numbers.length; index += 1) {
         if (numbers[index] % 2 === 1) {
         contador = contador + 1;
     } else if (contador === 0) {
-        console.log('Nenhum valor ímpar encontrado');
+        
     }
-    }
+}
+console.log('Nenhum valor ímpar encontrado');
 console.log(contador);

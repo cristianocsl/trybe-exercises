@@ -4,15 +4,15 @@ let contador = 0;
 for (let index = 0; index < numbers.length; index += 1) {
     if (numbers[index] % 2 == 0) {
          
-        } else {
-        contador = contador + 1;
-        }
-
-    }
-
-    if (contador == 0){
-        console.log('Nenhum valor ímpar encontrado!')
     } else {
-        console.log(contador);
+        contador = contador + 1;
     }
+
+}   
+
+if (contador == 0){
+    console.log('Nenhum valor ímpar encontrado!')
+} else {
+    console.log(contador);
+}
 
