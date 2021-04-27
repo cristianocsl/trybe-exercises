@@ -5,11 +5,10 @@ quadrado feito de asteriscos de lado de tamanho n . Por exemplo: */
 let n = 5;
 let inserirLinha = ''; //insere um string vazio
 let asterisco = '*';
-
 for (let index = 0; index < n; index += 1) { //
         for (let index = 0; index < n; index += 1) { //imprime a linha 'n' vezes (n=5)
             inserirLinha += asterisco; //é o mesmo que 'inserirLinha = inserirLinha + asterisco'
             };
-inserirLinha += '\n';//adiciona uma quebra de linha ao preencher uma linha completa com '*'
+    inserirLinha += '\n';//adiciona uma quebra de linha ao preencher uma linha completa com '*'
 };
 console.log(inserirLinha);
