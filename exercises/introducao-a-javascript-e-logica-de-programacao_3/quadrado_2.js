@@ -7,8 +7,9 @@ let inserirLinha = ''; //insere um string vazio
 let asterisco = '*';
 
 for (let index = 0; index < n; index += 1) { //
-    inserirLinha += asterisco; //é o mesmo que 'inserirLinha = inserirLinha + asterisco'
+        for (let index = 0; index < n; index += 1) { //imprime a linha 'n' vezes (n=5)
+            inserirLinha += asterisco; //é o mesmo que 'inserirLinha = inserirLinha + asterisco'
+            };
+inserirLinha += '\n';//adiciona uma quebra de linha ao preencher uma linha completa com '*'
 };
-for (let index = 0; index < n; index += 1) { //imprime a linha 'n' vezes (n=5)
-    console.log(inserirLinha);
-};
+console.log(inserirLinha);
