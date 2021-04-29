@@ -1,0 +1,1 @@
+document.getElementById("subtitle").innerText = "Novo título para substituir o primeiro";
