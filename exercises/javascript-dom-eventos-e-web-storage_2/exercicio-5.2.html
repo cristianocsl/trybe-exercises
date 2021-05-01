@@ -44,7 +44,7 @@
       }
 
       .main-content .right-content {
-        background-color: blue;
+        background-color: rgb(199, 199, 231);
         width: 60%;
         margin-left: auto;
         margin-right: auto;
@@ -111,7 +111,10 @@
         //itemNumb.appendChild(document.createTextNode(index));
       };
       div4.appendChild(listNumb);
-      //div4.removeChild(itemNumb[9]);
+      let lista = document.getElementsByTagName('ul')[0];
+      let itens = lista.getElementsByTagName('li');
+      lista.removeChild(itens[9]);
+      lista.removeChild(itens[8]);
       // etapa 9
       let title1_h3 = document.createElement('h3');
       title1_h3.innerHTML = 'Texto do título 1 - h3';
