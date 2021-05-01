@@ -104,7 +104,7 @@
       let numbExtenso = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
       let listNumb = document.createElement('ul');//criar elemento Unordered List
       for (let index of numbExtenso) {
-        let topicos = numbExtenso[index];
+        let topicos = index;
         let itemNumb = document.createElement('li');
         itemNumb.innerText = topicos;
         listNumb.appendChild(itemNumb);
