@@ -104,9 +104,8 @@
       let numbExtenso = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
       let listNumb = document.createElement('ul');//criar elemento Unordered List
       for (let index of numbExtenso) {
-        let topicos = index;
         let itemNumb = document.createElement('li');
-        itemNumb.innerText = topicos;
+        itemNumb.innerText = index; // retorna o conteúdo do index ('um' ou 'dois' etc...) que vai preencher cada li.
         listNumb.appendChild(itemNumb);
         //let itemNumb = document.createElement('li');
         //itemNumb.appendChild(document.createTextNode(index));
