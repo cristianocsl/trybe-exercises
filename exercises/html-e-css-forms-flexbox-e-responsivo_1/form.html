@@ -8,7 +8,82 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <form action="" method="get">
+    <fieldset>
+      <div>
+        <label for="id-name">Nome</label>
+        <br>
+        <input type="text" name="nome" required maxlength="40" id="id-name">
+      </div>
+      <div>
+        <label for="id-email">Email</label>
+        <br>
+        <input type="email" name="email" required maxlength="50" id="id-email">
+      </div>
+      <div>
+        <label for="id-cpf">CPF</label>
+        <br>
+        <input type="number" name="cpf" required maxlength="11" id="id-cpf">
+      </div>
+      <div>
+        <label for="id-estados">Estado</label>
+        <br>
+        <select name="estados" required id="id-estados">
+          <option value="ac">Acre</option>
+          <option value="al">Alagoas</option>
+          <option value="ap">Amapá</option>
+          <option value="am">Amazonas</option>
+          <option value="ba">Bahia</option>
+          <option value="ce">Ceará</option>
+          <option value="df">Distrito Federal</option>
+          <option value="es">Espírito Santo</option>
+          <option value="go">Goiás</option>
+          <option value="ma">Maranhão</option>
+          <option value="mg">Mato Grosso</option>
+          <option value="ms">Mato Grosso do Sul</option>
+          <option value="mg">Minas Gerais</option>
+          <option value="pa">Pará</option>
+          <option value="pb">Paraíba</option>
+          <option value="pr">Paraná</option>
+          <option value="pe">Pernambuco</option>
+          <option value="pi">Piauí</option>
+          <option value="rj">Rio de Janeiro</option>
+          <option value="rn">Rio Grande do Norte</option>
+          <option value="rs">Rio Grande do Sul</option>
+          <option value="ro">Rondônia</option>
+          <option value="rr">Roraima</option>
+          <option value="sc">Santa Catarina</option>
+          <option value="sp">São Paulo</option>
+          <option value="se">Sergipe</option>
+          <option value="to">Tocantins</option>
+        </select>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div>
+        <label for="id-resumo">Resumo do currículo</label>
+        <br>
+        <input type="text" name="resumo" required maxlength="1000" id="id-resumo">
+      </div>
+      <div>
+        <label for="id-cargo">Cargo</label>
+        <br>
+        <input type="text" name="cargo" required maxlength="40" id="id-cargo">
+      </div>
+      <div>
+        <label for="id-descri-cargo">Descrição do cargo</label>
+        <br>
+        <input type="text" name="descr-cargo" required maxlength="500" id="id-descri-cargo">
+      </div>
+      <div>
+        <label for="id-data-inicio">Data de início</label>
+        <br>
+        <input type="date" name="data-inicio" required id="id-data-inicio">
+      </div>
+    </fieldset>
+    <button id="prevent-default">Enviar</button>
+    <button id="limpar">Limpar</button>
+  </form>
   <script src="script.js"></script>
 </body>
 </html>
