@@ -24,17 +24,37 @@ function eraseButton() {
 const clickButtonErase = document.getElementById('limpar');
 clickButtonErase.addEventListener('click', eraseButton);
 
-function dividir() {
-  let input = document.getElementById('id-data-inicio');
-  let dividir = input.value.split('/');
-  let dia = dividir[0];
-  let mes = dividir[1];
-  let ano = dividir[2];
-  
-  if (dia < 0 || dia > 30) {
-    return {
-      message: 'Dia inválido'
-    };
+function validacaoData() {
+  let input = '30/05/2002';
+if (input.value === 0) {
+  return {
+    message: 'A data não foi preenchida!'
   }
 }
-dividir();
+
+let splitted = input.value.split('/');
+let day = splitted[0];
+let month = splitted[1];
+let year = splitted[2];
+
+if(day < 0 || day > 30){
+  return {
+    message: 'Dia inválido'
+  };
+}
+
+if(month < 0 || month > 12){
+  return {
+    message: 'Mês inválido'
+  }
+}
+
+if(year < 0) {
+  return {
+    message: 'Ano inválido'
+  };
+}
+
+return true;
+}
+validacaoData();
