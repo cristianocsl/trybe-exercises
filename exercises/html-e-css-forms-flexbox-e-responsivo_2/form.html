@@ -4,29 +4,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
   <title>Document</title>
 </head>
 <body>
+  <header class="p-3 mb-2 bg-light text-dark">
+    <h1 class="text-center">Cadastre seu currículo</h1>
+  </header>
   <form action="" method="get">
-    <div>
-      <fieldset>
-        <div>
+    <div class="container">
+      <div>
+        <div class="mb-3">
           <label for="id-name">Nome</label>
           <br>
-          <input type="text" name="nome" required maxlength="40" id="id-name">
+          <input class="form-control" type="text" name="nome" required maxlength="40" id="id-name">
         </div>
-        <div>
+        <div class="mb-3">
           <label for="id-email">Email</label>
           <br>
-          <input type="email" name="email" required maxlength="50" id="id-email">
+          <input class="form-control" type="email" name="email" required maxlength="50" id="id-email">
         </div>
-        <div>
+        <div class="mb-3">
           <label for="id-cpf">CPF</label>
           <br>
-          <input type="number" name="cpf" required maxlength="11" id="id-cpf">
+          <input class="form-control" type="number" name="cpf" required maxlength="11" id="id-cpf">
         </div>
-      <div>
+      <div class="mb-3">
         <label for="id-estados">Estado</label>
         <br>
         <select name="estados" required id="id-estados">
@@ -59,31 +63,31 @@
           <option value="to">Tocantins</option> -->
         </select>
       </div>
-      </fieldset>
-      <fieldset>
-        <div>
+      </div>
+      <div>
+        <div class="mb-3">
           <label for="id-resumo">Resumo do currículo</label>
           <br>
-          <input type="text" name="resumo" required maxlength="1000" id="id-resumo">
+          <input class="form-control" type="text" name="resumo" required maxlength="1000" id="id-resumo">
         </div>
-        <div>
+        <div class="mb-3">
           <label for="id-cargo">Cargo</label>
           <br>
-          <input type="text" name="cargo" required maxlength="40" id="id-cargo">
+          <input class="form-control" type="text" name="cargo" required maxlength="40" id="id-cargo">
         </div>
-        <div>
+        <div class="mb-3">
           <label for="id-descri-cargo">Descrição do cargo</label>
           <br>
-          <input type="text" name="descr-cargo" required maxlength="500" id="id-descri-cargo">
+          <input class="form-control" type="text" name="descr-cargo" required maxlength="500" id="id-descri-cargo">
         </div>
-        <div>
+        <div class="mb-3">
           <label for="id-data-inicio">Data de início</label>
           <br>
-          <input type="text" name="data-inicio" required id="id-data-inicio">
+          <input class="form-control" type="text" name="data-inicio" required id="id-data-inicio">
         </div>
-      </fieldset>
-      <button id="prevent-default">Enviar</button>
-      <button id="limpar">Limpar</button>
+      </div>
+      <button class="btn btn-outline-success" id="prevent-default">Enviar</button>
+      <button class="btn btn-outline-danger" id="limpar">Limpar</button>
     </div>
   </form>
   <script src="script.js"></script>

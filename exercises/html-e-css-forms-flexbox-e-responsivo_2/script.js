@@ -25,36 +25,40 @@ const clickButtonErase = document.getElementById('limpar');
 clickButtonErase.addEventListener('click', eraseButton);
 
 function validacaoData() {
-  let input = '30/05/2002';
-if (input.value === 0) {
-  return {
-    message: 'A data não foi preenchida!'
+  let input = document.querySelector('#id-data-inicio'); //array para teste
+
+  // verifique a posição das barras (index 2 e 5)
+  if (input[2] !== '/' || input[5] !== '/') {
+    alert('Use barras ( / ) para separar dia, mês e ano!');
   }
-}
 
-let splitted = input.value.split('/');
-let day = splitted[0];
-let month = splitted[1];
-let year = splitted[2];
-
-if(day < 0 || day > 30){
-  return {
-    message: 'Dia inválido'
-  };
-}
-
-if(month < 0 || month > 12){
-  return {
-    message: 'Mês inválido'
+  if (input.value === 0) {
+    alert('A data não foi preenchida!');
   }
-}
 
-if(year < 0) {
-  return {
-    message: 'Ano inválido'
-  };
-}
-
-return true;
+  let splitted = input.value.split('/');
+  // separe os dois primeiros elementos em um único elemento de um array:
+  let dia = splitted[0];
+  if (dia < 0 || dia > 31) {
+    alert('Dia inválido!');
+  }
+  // separe os elementos na posição mês (index 3 e 4) em um único elemento de um array:
+  let mes = splitted[1];
+  if (mes < 1 || mes > 12) {
+    alert('Mês inválido!');
+  }
+  // separe os elementos na posição do ano (index 6, 7, 8 e 9)
+  let ano = splitted[2];
+  if (ano < 0) {
+    alert('Ano inválido!');
+  }
 }
 validacaoData();
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  let validation = validateData();
+
+  clearDivs();
+}
