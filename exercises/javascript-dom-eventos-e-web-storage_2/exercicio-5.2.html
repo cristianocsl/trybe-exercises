@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: green;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: rgb(199, 199, 231);
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    
+
+
+    <script>
+      // COLOQUE SEU CÓDIGO AQUI
+
+      // etapa 1
+      let corpo = document.querySelector('body');//destino
+      let titulo = document.createElement('h1');//criar element
+      titulo,className = 'title';
+      titulo.innerHTML = "Título da página";//conteúdo do eleme
+      corpo.appendChild(titulo);//adiciona elem ao destino
+      // etapa 2
+      let div1 = document.createElement('div');
+      div1.className = 'main-content';
+      div1.innerHTML = 'Conteúdo da div1 da classe main-content.';
+      corpo.appendChild(div1);//div1 filho do corpo(body)
+      // etapa 3
+      let div2 = document.createElement('div');
+      div2.className = 'center-content';
+      div2.innerHTML = 'Conteúdo da div2 da classe center-content.';
+      div1.appendChild(div2);
+      // etapa 4
+      let paragr1 = document.createElement('p');
+      paragr1.innerHTML = 'Conteúdo da tag parágrafo, que é filho da div2.';
+      div2.appendChild(paragr1);
+      // etapa 5
+      let div3 = document.createElement('div');
+      div3.className = 'left-content';
+      div3.innerHTML = 'Conteúdo da div3 da classe left-content.';
+      div1.appendChild(div3);
+      div1.removeChild(div3);
+      // etapa 6
+      let div4 = document.createElement('div');
+      div4.className = 'right-content';
+      div4.innerHTML = 'Conteúdo da div4 da classe left-content.';
+      div1.appendChild(div4);
+      // etapa 7
+      let imagem1 = document.createElement('img');
+      imagem1.className = 'small-image';
+      imagem1.src = 'https://picsum.photos/200';
+      div3.appendChild(imagem1);
+
+      // etapa 8
+      let numbExtenso = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+      let listNumb = document.createElement('ul');//criar elemento Unordered List
+      for (let index of numbExtenso) {
+        let itemNumb = document.createElement('li');
+        itemNumb.innerText = index; // retorna o conteúdo do index ('um' ou 'dois' etc...) que vai preencher cada li.
+        listNumb.appendChild(itemNumb);
+        //let itemNumb = document.createElement('li');
+        //itemNumb.appendChild(document.createTextNode(index));
+      };
+      div4.appendChild(listNumb);
+      let lista = document.getElementsByTagName('ul')[0];
+      let itens = lista.getElementsByTagName('li');
+      lista.removeChild(itens[9]);
+      lista.removeChild(itens[8]);
+      // etapa 9
+      let title1_h3 = document.createElement('h3');
+      title1_h3.innerHTML = 'Texto do título 1 - h3';
+      title1_h3.className = 'description';
+      div1.appendChild(title1_h3);
+
+      let title2_h3 = document.createElement('h3');
+      title2_h3.innerHTML = 'Texto do título 2 - h3';
+      title2_h3.className = 'description';
+      div1.appendChild(title2_h3);
+
+      let title3_h3 = document.createElement('h3');
+      title3_h3.className = 'description';
+      title3_h3.innerHTML = 'Texto do título 1 - h3';
+      div1.appendChild(title3_h3);
+
+      
+
+
+    </script>
+  </body>
+</html>

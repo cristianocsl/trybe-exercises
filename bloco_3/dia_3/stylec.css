@@ -1,0 +1,12 @@
+h1, p, lu {
+    text-align: center;
+}
+
+li:hover {
+    background-color: cadetblue; list-style: none;
+}
+
+li:active {
+    color: white;
+    font-family: helvetica;
+}

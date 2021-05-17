@@ -1,0 +1,60 @@
+div{
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    width: auto;
+    height: auto;
+  }
+
+div:hover {
+    /* insira aqui uma borda com valor '5px solid black' para aplicá-la ao item D */
+    border: 2px solid green;
+    border-radius: 5px;
+    
+    }
+
+.cor1 {
+    background-color: grey;
+}
+
+.cor2 {
+    background-color: goldenrod;
+}
+
+.cor3 {
+    background-color: blue;
+    padding: 30px   ;
+}
+
+.cor4 {
+    background-color: crimson;
+}
+
+.cor5 {
+    background-color: darkmagenta;
+}
+
+.estilo1 {
+    color: darkmagenta;
+    font-style: italic;
+}
+
+.estilo2 {
+    color: darkslategray;
+    font: optional;
+}
+
+.estilo3 {
+    color: floralwhite;
+    font-style: italic;
+}
+
+.estilo4 {
+    color: goldenrod;
+    font-weight: bold;
+}
+
+.estilo5 {
+    color: hotpink;
+    font-style: italic;
+}
