@@ -48,6 +48,13 @@ function myRemoveWithoutCopy(arr, item) {
 
 const assert = require('assert');
 const array = [1, 2, 3, 4];
-const resultado = myRemoveWithoutCopy(array, 1); // porque 1?
-assert.strictEqual(resultado.length, 3, 'Se o tamanho de resultado.length for estritamente igua a 3, então o array passado por parâmetro não sofreu alterações. Portanto, esta mensagem não será exibida, pois o resultado do assert é TRUE, e sendo TRUE, não é mostrado nenhum valor de output');
+// const resultado = myRemoveWithoutCopy(array, 1); // porque 1?
+// assert.strictEqual(resultado.length, 3, 'Se o tamanho de resultado.length for estritamente igua a 3, então o array passado por parâmetro não sofreu alterações. Portanto, esta mensagem não será exibida, pois o resultado do assert é TRUE, e sendo TRUE, não é mostrado nenhum valor de output');
 
+// Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorna o array esperado
+
+// const resultado = myRemoveWithoutCopy(array, 5);
+// assert.deepStrictEqual(resultado,[1, 2, 3, 4], 'Se esta mensagem não for exibida, o valor esperado é igual ao resultado da função verificada.');
+
+// const resultado = myRemoveWithoutCopy(array, 5);
+// assert.deepStrictEqual(resultado,[1, 2, 3], 'Se esta mensagem for exibida, o valor esperado é diferente do resultado da função verificada. O valor esperado é [1 ,2 ,3 ,4]');
