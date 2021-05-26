@@ -72,12 +72,3 @@ takeCoffee('Bora tomar café!!');
 console.log(doingThings(wakeUp));
 console.log(doingThings(takeCoffee));
 
-// aula ao vivo
-const person = {
-  name: 'Carol',
-  lastName: 'Santos',
-};
-
-const greetinPeople = (person) => {
-  console.log(`Olá ${person.name}, como vai você?`);
-}
