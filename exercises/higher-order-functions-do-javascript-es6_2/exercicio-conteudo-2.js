@@ -62,24 +62,26 @@
 const names = ['João', 'Irene', 'Fernando', 'Maria'];
 
 const findNameWithFiveLetters = () => { // porque aqui funciona mesmo sem definir parâmetro?
-  return names.find((element) => element.length === 5); // mesmo dentro desta função, o array names é capturado? não entendi!
+  return names.find((element) => element.length === 5); // find é a HOF e o que está dentro seria a callback?
 }
 
+function length(element) {return element.length === 5}
+names.find(length)
 console.log(findNameWithFiveLetters()); // por que aqui funciona mesmo sem definir parâmetro?
 
 // // 3 - Utilize o find para encontrar a música com id igual a 31031685 , caso ela exista:
 
-// const musicas = [
-//   { id: '31031685', title: 'Partita in C moll BWV 997' },
-//   { id: '31031686', title: 'Toccata and Fugue, BWV 565' },
-//   { id: '31031687', title: 'Chaconne, Partita No. 2 BWV 1004' },
-// ]
+const musicas = [
+  { id: '31031685', title: 'Partita in C moll BWV 997' },
+  { id: '31031686', title: 'Toccata and Fugue, BWV 565' },
+  { id: '31031687', title: 'Chaconne, Partita No. 2 BWV 1004' },
+]
 
-// function findMusic(id) { // esta função já tinha parâmentro. Por quê?
-//   return musicas.find((element) => element.id === id);
-// }
+function findMusic(id) { // esta função já tinha parâmentro. Por quê?
+  return musicas.find((element) => element.id === id);
+}
 
-// console.log(findMusic('31031685')) // por que precisou de parâmetro, mas no exercício 2, não?
+console.log(findMusic('31031685')) // por que precisou de parâmetro, mas no exercício 2, não?
 
 // 1 - Escreva uma função que dado um array de nomes e um nome retorne true se ele estiver contido e caso contrário, retorne false , use some ;
 
