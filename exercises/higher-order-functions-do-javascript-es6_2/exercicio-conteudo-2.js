@@ -59,13 +59,13 @@
 
 // 2 - Utilize o find para encontrar o primeiro nome com cinco letras, caso ele exista:
 
-// const names = ['João', 'Irene', 'Fernando', 'Maria'];
+const names = ['João', 'Irene', 'Fernando', 'Maria'];
 
-// const findNameWithFiveLetters = () => { // porque aqui funciona mesmo sem definir parâmetro?
-//   return names.find((element) => element.length === 5); // mesmo dentro desta função, o array names é capturado? não entendi!
-// }
+const findNameWithFiveLetters = () => { // porque aqui funciona mesmo sem definir parâmetro?
+  return names.find((element) => element.length === 5); // mesmo dentro desta função, o array names é capturado? não entendi!
+}
 
-// console.log(findNameWithFiveLetters()); // por que aqui funciona mesmo sem definir parâmetro?
+console.log(findNameWithFiveLetters()); // por que aqui funciona mesmo sem definir parâmetro?
 
 // // 3 - Utilize o find para encontrar a música com id igual a 31031685 , caso ela exista:
 
