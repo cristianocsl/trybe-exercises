@@ -63,44 +63,36 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
-
-// 2 - Construa um array de objetos a partir do array de livros. Cada objeto deve conter uma propriedade author , com o nome da pessoa autora do livro, e uma propriedade age com a idade dessa pessoa quando o livro foi lançado. O array deve ser ordenado por idade, ou seja, da pessoa mais jovem para a mais velha considerando suas idades quando o livro foi lançado.
-// Dica: use as funções map , sort
-
 const expectedResult = [
   {
-    age: 31,
-    author: 'Isaac Asimov',
+    id: 6,
+    name: 'O Chamado de Cthulhu',
+    genre: 'Terror',
+    author: { name: 'H. P. Lovecraft', birthYear: 1890 },
+    releaseYear: 1928,
   },
   {
-    age: 38,
-    author: 'H. P. Lovecraft',
+    id: 3,
+    name: 'Fundação',
+    genre: 'Ficção Científica',
+    author: { name: 'Isaac Asimov', birthYear: 1920 },
+    releaseYear: 1951,
   },
   {
-    age: 39,
-    author: 'Stephen King',
-  },
-  {
-    age: 43,
-    author: 'George R. R. Martin',
-  },
-  {
-    age: 45,
-    author: 'Frank Herbert',
-  },
-  {
-    age: 62,
-    author: 'J. R. R. Tolkien',
+    id: 2,
+    name: 'O Senhor dos Anéis',
+    genre: 'Fantasia',
+    author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
+    releaseYear: 1954,
   },
 ];
 
-function nameAndAge() {
-  const authorAge = books.map((book) => {
-    const age = book.releaseYear - book.author.birthYear;
-    return {age: age, author: book.author.name, };
-  });
-  return authorAge.sort((bookA, bookB) => bookA.age - bookB.age);
+// 4 - Crie um array ordenado pelos livros com mais de 60 anos de publicação e ordene-o pelo livro mais velho.
+// Dica: use as funções filter e sort
+function oldBooksOrdered() {
+  const books60 = books.filter((book) => (2021 - book.releaseYear) > 60).sort((bookA, bookB) => bookA.releaseYear - bookB.releaseYear);
+  return books60;
 }
-console.log(nameAndAge())
-assert.deepStrictEqual(nameAndAge(), expectedResult);
+console.log(oldBooksOrdered());
+assert.deepStrictEqual(oldBooksOrdered(), expectedResult);
+
