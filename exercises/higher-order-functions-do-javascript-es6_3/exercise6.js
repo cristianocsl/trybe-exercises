@@ -70,6 +70,13 @@ const expectedResult = [
 ];
 
 // 6 - Crie um array com o nome de todos os livros com mais de 60 anos de publicação.
+// function oldBooks() { // SOLUÇÃO DO GABARITO
+//   const currentYear = new Date().getFullYear();
+//   return books
+//     .filter((book) => currentYear - book.releaseYear > 60)
+//     .map((book) => book.name);
+// }
+
 function oldBooks() {
   const books60 = books.filter((book) => (2021 - book.releaseYear) > 60);
   const arrBooks60 = books60.map((book) => book.name);
