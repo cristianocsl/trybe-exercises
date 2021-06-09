@@ -16,7 +16,7 @@ const fetchPromise = () => { // Por que a função de baixo deve ser envolvida p
     console.log(`Resultado da soma: ${sum}
   Condição de Sucesso: soma < 8000`); // linha para conferir valor da soma.
   
-    sum < 8000 ? resolve(sum) : reject(); // resolve e reject devem ser invocadas sem parâmetro
+    (sum < 8000) ? resolve(sum) : reject(); // resolve e reject devem ser invocadas sem parâmetro
   });
   
   myPromise
