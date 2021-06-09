@@ -9,7 +9,7 @@ const promise = new Promise((resolve, reject) => {
   console.log(`Resultado da soma: ${sum}
 Condição de Sucesso: soma < 8000`); // linha para conferir valor da soma.
 
-  sum < 8000 ? resolve() : reject(); // resolve e reject devem ser invocadas sem parâmetro
+  sum < 8000 ? resolve() : reject(); // resolve e reject devem ser invocadas. Como não será usado o valor, resolve não recebe parâmetro.
 });
 
 promise
