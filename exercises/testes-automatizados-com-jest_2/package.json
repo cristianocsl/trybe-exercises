@@ -1,0 +1,15 @@
+{
+  "name": "testes-automatizados-com-jest_2",
+  "version": "1.0.0",
+  "main": "exercicio-fixacao.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^27.0.4"
+  }
+}
