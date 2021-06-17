@@ -1,5 +1,5 @@
 const arq = require('./exercicios');
-jest.mock('./exercicios'); // os testes do exercício 4 só funcionam quando tem essa linha.
+jest.mock('./exercicios'); // os testes do exercício 4 só funcionam quando tem essa linha. Atrapalha o funcionamento do spyOn().
 
 // Exercício 1
 test('Testa a função aleatório', () => {
@@ -67,13 +67,14 @@ describe('Testando implementações', () => {
   });
 });
 
-// // Exercício 5 // Os testes deste exercício não funcionam quando tem essa linha de código: jest.mock('./exercicios'); 
+// // Exercício 5 // Os testes deste exercício que usam spyOn() não funcionam quando tem essa linha de código: jest.mock('./exercicios'). Por isso que este exercício está comentado.
+
 // describe('testando implementações', () => {
 //   test('mockando função para receber um parâmetro e retornar em caixa baixa', () => {
     
 //     const first = jest.spyOn(arq, 'stringUpC').mockImplementation((string) => string.toLowerCase()); 
 
-//     expect(first('LIMA')).toBe('lima'); // 1. testa se as letras ficam minúsculas.
+//     expect(first('LIMA')).toBe('lima');
 //     expect(first).toHaveBeenCalled();
 //     expect(first).toHaveBeenCalledTimes(1);
 //     expect(first).toHaveBeenCalledWith('LIMA');
@@ -81,8 +82,4 @@ describe('Testando implementações', () => {
 //     arq.stringUpC.mockRestore();
 //     expect(arq.stringUpC('castro')).toBe('CASTRO');
 //   });
-
-//   // restaurando o mock
-//   first.mockRestore();
-//   expect(first('lima')).toBe('LIMA');
 // })
