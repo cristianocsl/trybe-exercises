@@ -1,7 +1,7 @@
 const arq = require('./exercicio-5');
 
 describe('testando implementações sobre a primeira função (stringUpC)', () => {
-  test('mockando função para receber um parâmetro e retornar em caixa baixa', () => {
+  test('mockando função para receber um parâmetro e retornar em caixa baixa:', () => {
     const first = jest
       .spyOn(arq, 'stringUpC')
       .mockImplementation((string) => string.toLowerCase()); 
