@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+  }
+
+  .first {
+    background-color: rgb(235, 200, 84);
+    font-size: 20px;
+    height: 50px;
+    text-align: center;
+    width: 200px;
+    align-items: center;
+    list-style-type: none;
+    margin-left: auto; /* margem esquerda 'auto'combinada com margem direita 'auto' para centralizar o bloco*/
+    margin-right: auto;
+  }
+
+  .second {
+    background-color: rgb(219, 219, 219);
+    font-size: 20px;
+    height: 50px;
+    text-align: center;
+    width: 300px;
+    align-items: baseline;
+    list-style-type: none;
+    display: inline-block; /*combina o segundo e o terceiro bloco com 'display: inline-block' 
+    para permanecerem com bloco na mesma linha*/
+  }
+
+  .third {
+    background-color: rgb(170, 142, 106);
+    font-size: 20px;
+    height: 50px;
+    text-align: center;
+    width: 300px;
+    align-items: baseline;
+    list-style-type: none;
+    display: inline-block;
+  }
+
+.alinhar {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+h3, section {
+    text-align: center;
+}
