@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import Input from './componentes/Input'
+// import states from './componentes/statesData';
+import Estado from './componentes/Estado';
 
 class App extends React.Component {
   constructor(){
@@ -13,7 +15,7 @@ class App extends React.Component {
       endereco: '',
       cidade: '',
       estado: '',
-      tipoDeResidencia: false,
+      tipoDeResidencia: '',
       resumoCurriculo: '',
       cargo: '',
       descricaoCargo: '',
@@ -28,7 +30,7 @@ class App extends React.Component {
       [name]: value
     })
   }
-  
+
   render () {
     return (
       <div>
@@ -57,7 +59,7 @@ class App extends React.Component {
         <Input
           inputLabel='Endereço:'
           name='endereco'
-          value={this.state.cidade}
+          value={this.state.endereco}
           type='text'
           handleChange={this.handleChange} //passando a função do pai pro filho através da props
         />
@@ -68,14 +70,15 @@ class App extends React.Component {
           type='text'
           handleChange={this.handleChange} //passando a função do pai pro filho através da props
         />
-        <Input
-          inputLabel='Estado:'
-          name='cidade'
-          value={this.state.cidade}
-          type='combobox'
-          handleChange={this.handleChange} //passando a função do pai pro filho através da props
+        <Estado
+        inputLabel='Estado:'
+        name='estado'
+        value={this.state.cidade} // traz o valor do componete nome do filho para o pai através da props.
+        type='select'
+        handleChange={this.handleChange} //passando a função do pai pro filho através da props
         />
       </fieldset>
+
 
       </div>
     );
