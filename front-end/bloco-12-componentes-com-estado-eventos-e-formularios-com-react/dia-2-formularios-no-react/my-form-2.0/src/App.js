@@ -71,11 +71,11 @@ class App extends React.Component {
           handleChange={this.handleChange} //passando a função do pai pro filho através da props
         />
         <Estado
-        inputLabel='Estado:'
-        name='estado'
-        value={this.state.cidade} // traz o valor do componete nome do filho para o pai através da props.
-        type='select'
-        handleChange={this.handleChange} //passando a função do pai pro filho através da props
+          inputLabel='Estado:'
+          name='estado'
+          value={this.state.estado} // traz o valor do componete nome do filho para o pai através da props.
+          type='select'
+          handleChange={this.handleChange} //passando a função do pai pro filho através da props
         />
       </fieldset>
 
