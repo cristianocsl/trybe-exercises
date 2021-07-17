@@ -1,7 +1,6 @@
   // App.js
   import React, { Component } from 'react';
   import './App.css';
-// import ValidEmail from './ValidEmail';
   
   class App extends Component {
     constructor(props) {
@@ -24,7 +23,6 @@
       const { email, saveEmail } = this.state;
       return (
         <div className="App">
-          <p>learn react</p>
           <label htmlFor="id-email">
             Email
           </label>
@@ -43,7 +41,6 @@
           />
           <input id="btn-id" type="button" value="Voltar" />
           <h2 data-testid="id-email-user">{`Valor: ${saveEmail}`}</h2>
-          {/* <ValidEmail email={ saveEmail } /> */}
         </div>
       );
     }
