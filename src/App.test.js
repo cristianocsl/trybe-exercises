@@ -44,17 +44,27 @@ describe('Teste da aplicação toda', () => {
 });
 
 describe('Teste da API com mock', () => {
-  test('Testa a promise', async () => { //  resolve as promises
-    const dados = {
+  test('Busca por um digimon', async () => { //  resolve as promises
+    const dados = [{ // faltou transformar em um array
       name: 'Agumon',
-      img: '/home/cristiano/trybe-exercises/front-end/bloco-15-testes-automatizados-com-react-testing-library/dia-2-rtl-mocks-e-inputs/exercise-digimon-finders/public/logo192.png',
+      img: 'https://digimon.shadowsmith.com/img/agumon.jpg',
       level: 'Rookie'
-    }
-    const response = { json: jest.fn().mockResolvedValue(dados) }
-    global.fetch = jest.fn().mockResolvedValue(response);
+    }];
+    // const response = { json: jest.fn().mockResolvedValue(dados) }
+    // global.fetch = jest.fn().mockResolvedValue(response);
 
+    // Global.fetch também pode ser feito dessa forma:
+    const fetchaApi = global.fetch = jest.fn( async () => ({
+      json: async () => dados,
+    }));
     render(<App />);
-    await screen.findByText('Agumon');
+    // Procura o input
+    const input = screen.getByTestId('input');
+    expect(input).toHaveValue('');
+    // simular digitação de 'Agumon'.
+    userEvent.type(input,'Agumon');
+    expect(input).toHaveValue('Agumon');
+    // await screen.findByText('Agumon');
     // await waitFor(() => screen.getByText('Agumon'));
 
   })
