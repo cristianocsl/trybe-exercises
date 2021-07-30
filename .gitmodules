@@ -1,0 +1,3 @@
+[submodule "front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/exercise-todo-list"]
+	path = front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/exercise-todo-list
+	url = git@github.com:tryber/exercise-todo-list.git
