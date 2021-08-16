@@ -19,3 +19,6 @@
 [submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-18-context-api-e-react-hooks/dia-1-context-api-do-react/exercise-contextAPI-refactoring"]
 	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-18-context-api-e-react-hooks/dia-1-context-api-do-react/exercise-contextAPI-refactoring
 	url = git@github.com:tryber/exercise-contextAPI-refactoring.git
+[submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-18-context-api-e-react-hooks/dia-2-react-hooks-usestate-e-usecontext/exercise-react-hooks-refactoring"]
+	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-18-context-api-e-react-hooks/dia-2-react-hooks-usestate-e-usecontext/exercise-react-hooks-refactoring
+	url = git@github.com:tryber/exercise-react-hooks-refactoring.git
