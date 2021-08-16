@@ -1,3 +1,18 @@
 [submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-15-testes-automatizados-com-react-testing-library/dia-1-rtl-primeiros-passos/exercise-todo-list"]
 	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-15-testes-automatizados-com-react-testing-library/dia-1-rtl-primeiros-passos/exercise-todo-list
 	url = git@github.com:tryber/exercise-todo-list.git
+[submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-2-usando-o-redux-no-react/exercises-redux-step-by-step"]
+	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-2-usando-o-redux-no-react/exercises-redux-step-by-step
+	url = git@github.com:tryber/exercises-redux-step-by-step.git
+[submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-3-usando-o-redux-no-react-pratica/exercise-forms-redux"]
+	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-3-usando-o-redux-no-react-pratica/exercise-forms-redux
+	url = git@github.com:tryber/exercise-forms-redux.git
+[submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-4-usando-o-redux-no-react-actions-assincronas/exercise-game-of-thrones-characters"]
+	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-4-usando-o-redux-no-react-actions-assincronas/exercise-game-of-thrones-characters
+	url = git@github.com:tryber/exercise-game-of-thrones-characters.git
+[submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-4-usando-o-redux-no-react-actions-assincronas/exercise-redux-thunk"]
+	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-4-usando-o-redux-no-react-actions-assincronas/exercise-redux-thunk
+	url = git@github.com:tryber/exercise-redux-thunk.git
+[submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/exercise-todo-list"]
+	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/exercise-todo-list
+	url = git@github.com:tryber/exercise-todo-list.git
