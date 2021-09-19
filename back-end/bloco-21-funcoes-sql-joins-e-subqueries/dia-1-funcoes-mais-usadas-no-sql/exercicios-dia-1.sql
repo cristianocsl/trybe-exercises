@@ -116,3 +116,5 @@ SELECT
     DATEDIFF(CURRENT_DATE(),hire_date) 'dias_trab'
 FROM
     employees;
+SELECT DATE(hire_date) FROM employees;
+SELECT CURRENT_DATE();
