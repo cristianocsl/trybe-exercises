@@ -116,3 +116,22 @@ SELECT
     DATEDIFF(CURRENT_DATE(),hire_date) 'dias_trab'
 FROM
     employees;
+SELECT DATE(hire_date) FROM employees;
+SELECT CURRENT_DATE();
+
+-- EXISTS
+
+SELECT * FROM hotel.Customers AS c
+WHERE NOT EXISTS (
+    SELECT * FROM hotel.Reservations
+    WHERE c.CustomerId = Reservations.CustomerId
+);
+
+-- Existe algum fornecedor que não possui produtos cadastrados no banco de dados?
+SELECT `Name` FROM praticando.manufacturers AS m
+WHERE NOT EXISTS (
+    SELECT * FROM praticando.products
+    WHERE Manufacturer = m.Code
+);
+SELECT * FROM praticando.products;
+SELECT * FROM praticando.manufacturers;
