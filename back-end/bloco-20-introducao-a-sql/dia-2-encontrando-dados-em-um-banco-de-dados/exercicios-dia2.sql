@@ -1,0 +1,35 @@
+USE Scientists;
+-- SELECT * FROM Scientists
+-- ORDER BY Name ASC;
+-- SELECT 18 AS dia, 'dezembro' AS mês, 1982 AS ano;
+-- SELECT 10+15;
+-- SELECT (2*6)/3;
+-- SELECT * FROM Projects
+-- ORDER BY Name;
+-- SELECT * FROM Projects;
+-- SELECT Name AS `Nome do Projeto`, Hours AS `Tempo de Trabalho` FROM Projects;
+-- SELECT * FROM Scientists
+-- ORDER BY Name;
+-- SELECT * FROM Projects
+-- ORDER BY Name DESC;
+-- SELECT 
+--     CONCAT('O projeto ',
+--             Name,
+--             ' precisou de ',
+--             Hours,
+--             ' horas para ser concluído.') AS resultado
+-- FROM
+--     Projects;
+-- SELECT Name, Hours FROM Projects
+-- ORDER BY Hours DESC LIMIT 3;
+-- SELECT DISTINCT Project FROM AssignedTo;
+-- SELECT Name, Hours FROM Projects
+-- ORDER BY Hours DESC LIMIT 1;
+-- SELECT Name FROM Projects
+-- ORDER BY Hours ASC
+-- LIMIT 1
+-- OFFSET 1;
+-- SELECT * FROM Projects
+-- ORDER BY Hours
+-- LIMIT 5;
+SELECT CONCAT('Existem ', COUNT(*), ' cientistas na tabela Scientists.') AS 'Qtd de cientistas' FROM Scientists;
