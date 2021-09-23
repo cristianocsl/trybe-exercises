@@ -1,3 +1,6 @@
+[submodule "front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/exercise-todo-list"]
+	path = front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/front-end/bloco-16-gerenciamento-de-estado-com-redux/dia-5-testes-em-react-redux/exercise-todo-list
+	url = git@github.com:tryber/exercise-todo-list.git
 [submodule "front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-15-testes-automatizados-com-react-testing-library/dia-1-rtl-primeiros-passos/exercise-todo-list"]
 	path = front-end/bloco-18-context-api-e-react-hooks/front-end/bloco-15-testes-automatizados-com-react-testing-library/dia-1-rtl-primeiros-passos/exercise-todo-list
 	url = git@github.com:tryber/exercise-todo-list.git
