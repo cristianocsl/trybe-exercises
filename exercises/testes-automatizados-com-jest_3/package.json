@@ -1,0 +1,19 @@
+{
+  "name": "testes-automatizados-com-jest_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fixacao-1.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.4"
+  }
+}
