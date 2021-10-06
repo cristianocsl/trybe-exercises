@@ -1,0 +1,40 @@
+use('exerc_dia_1');
+// Exercício 1: Retorne o documento com o _id igual a 8.
+// db.bios.find({_id: 8});
+
+// Exercício 2 : Retorne o documento com o _id igual a 8, mas só exiba os atributos: _id e name .
+// db.bios.find({_id: 8}, {name:1, _id:1});
+
+// Exercício 3 : Retorne apenas os atributos name e birth do documento com o _id igual a 8.
+// db.bios.find({_id:8}, {name:1, birth:1});
+
+// Exercício 4 : Retorne todos os documentos em que o atributo name.first seja igual a John , utilizando o método pretty() .
+use('exerc_dia_1');
+// db.bios.find({ "name.first": "John" });
+
+// Exercício 5 : Retorne os 3 primeiros documentos da coleção bios utilizando o método pretty() .
+// db.bios.find().limit(3);
+
+// Exercício 6 : Retorne 2 documentos da coleção bios pulando os 5 primeiros documentos.
+db.bios.find().skip(5).limit(2);
+
+use('exerc_dia_1');
+db.books.insertMany([
+  
+])
+
+// no terminal: mongoimport --db class --collection books /home/cristiano/trybe-exercises/back-end/bloco-23-introducao-ao-mongodb/dia-1-mongodb-introducao/books-48d15e4d8924badc2308cc4a62eb3ea4.json
+
+// use('class');
+// Exercício 7 : Retorne a quantidade de documentos da coleção books .
+// db.books.count();
+
+// Exercício 8 : Conte quantos livros existem com o status = "PUBLISH" .
+// db.books.find({ "status": "PUBLISH" });
+
+// Exercício 9 : Exiba os atributos title , isbn e pageCount dos 3 primeiros livros. NÃO retorne o atributo _id .
+// db.books.find({}, { title:1, isbn:1, pageCount:1, _id:0 }).limit(3);
+
+// Exercício 10: Pule 5 documentos e exiba os atributos _id , title , authors e status dos livros com o status = "MEAP" , limitando-se a 10 documentos.
+use('class');
+db.books.find({ "status":"MEAP" }, { _id:0, title:1, authors:1, status:1 }).skip(5).limit(10);
