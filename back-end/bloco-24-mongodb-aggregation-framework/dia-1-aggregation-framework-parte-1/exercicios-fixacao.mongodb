@@ -53,3 +53,237 @@
 //   },
 //   { $limit: 3 }
 // ])
+
+// use('class')
+// db.books.aggregate([
+//   { $project: { 
+//     // title: 1,
+//     "author.first": 0,
+//     // copies: 1,
+//     _id: 0
+//    } }
+// ])
+
+// Exemplo 1: Contando o número de documentos: Você pode utilizar o operador $group para contar o número de documentos da coleção sales
+
+// db.sales.aggregate([
+//   {
+//     $group: { _id: null, count: { $sum: 1 } }
+//   }
+// ])
+
+// ou
+
+// db.sales.count();
+
+// Exemplo 2: Retornando valores distintos
+// O operador $group também pode ser utilizado para encontrar os valores distintos de um campo. Por exemplo, se quiser saber todos os valores únicos do campo item e quantos são, faça como o exemplo seguinte:
+
+// db.sales.aggregate([
+//   {
+//     $group: {
+//       _id: "$item",
+//       count: { $sum: 1 }
+//     }
+//   }
+// ]);
+
+// Exemplo 3: Somando valores
+// Para saber o valor das vendas, você deve utilizar o operador $sum , que, por sua vez, aceita mais modificadores. No exemplo que se segue, multiplica-se o valor do campo price pelo valor do campo quantity :
+
+// db.sales.aggregate([
+//   {
+//     $group: {
+//       _id: "$item",
+//       totalVendas: {
+//         $sum: {
+//           $multiply: ["$price", "$quantity"]
+//         }
+//       }
+//     }
+//   }
+// ]);
+
+// Exemplo 4: Having (do Mysql), combinando estágios no aggregate
+// Também é possível realizar operações equivalentes ao HAVING do SQL , que nada mais é que um filtro depois de um agrupamento. Por exemplo, se você quiser manter o agrupamento anterior, mas saber apenas as vendas que possuem valores maiores do que 100 , é só adicionar mais um estágio no pipeline :
+
+// db.sales.aggregate([
+//   {
+//     $group: {
+//       _id: "$item",
+//       totalVendas: {
+//         $sum: {
+//           $multiply: ["$price", "$quantity"]
+//         }
+//       }
+//     }
+//   },
+//   {
+//     $match: { "totalVendas": { $gt: 100 } }
+//   }
+// ]);
+
+// Exemplo 5: Agrupando por null
+// Você pode executar operações matemáticas em todos os documentos de uma coleção. Basta passar null no _id e seguir com os operadores de acumulação.
+// No exemplo a seguir, a operação de agregação retornará um documento com o valor total da venda, a quantidade média de itens vendidos e o total de vendas:
+
+// db.sales.aggregate([
+//   {
+//     $group: {
+//       _id: null,
+//       totalVendas: {
+//         $sum: { $multiply: ["$price", "$quantity"] }
+//       },
+//       mediaVendas: { $avg: "$quantity" },
+//       qtdeVendas: { $sum: 1 }
+//     }
+//   }
+// ]);
+
+// PARA FIXAR
+// Selecione todos os bancos, ou seja, valores do campo bank ;
+
+// use('agg_example');
+// db.transactions.aggregate([
+//   { $group: {
+//     _id: "$bank",
+//     bank: { $sum: 1 },
+//   } },
+// ]);
+
+// Selecione todos os bancos, ou seja, valores do campo bank ;
+
+// db.transactions.find();
+// db.transactions.aggregate([
+//   {
+//     $group: {
+//       _id: "$bank",
+//       valorTotal: { $sum: "$value" },
+//       transações: { $sum: 1 }, // a quantidade de transações ocorre pela quantidade de vezes em que um banco se repete em um grupo.
+//     },
+//   },
+// ]);
+
+// Selecione o valor total de transações por banco;
+// use('agg_example');
+// db.transactions.aggregate([
+//   {
+//     $group: {
+//       _id: "$bank",
+//       valorTotal: { $sum: "$value" },
+//     },
+//   },
+// ]);
+
+// Selecione os bancos que têm o valor total de transações maior que 1000.
+// use('agg_example');
+// db.transactions.aggregate([
+//   {
+//     $group: {
+//       _id: "$bank",
+//       valorTotalTransaçã0: {
+//         $sum: "$value",
+//       },
+//     },
+//   },
+//   {
+//     $match: { valorTotalTransaçã0: { $gt: 1000 } }
+//   },
+// ]);
+
+// Insira o seguinte documento na coleção inventory :
+// db.inventory.insertOne({ _id: 7, item: "ABC1", sizes: ["S", "M", "L"] });
+// db.inventory.aggregate([
+//   { $unwind: "$sizes" },
+// ]);
+
+// orders
+// db.orders.insertMany([
+// { _id: 1, item: "almonds", price: 12, quantity: 2 },
+// { _id: 2, item: "pecans", price: 20, quantity: 1 },
+// { _id: 3 }
+// ]);
+
+// // inventory
+// db.inventory.insertMany([
+// { _id: 1, sku: "almonds", description: "product 1", instock: 120 },
+// { _id: 2, sku: "bread", description: "product 2", instock: 80 },
+// { _id: 3, sku: "cashews", description: "product 3", instock: 60 },
+// { _id: 4, sku: "pecans", description: "product 4", instock: 70 },
+// { _id: 5, sku: null, description: "Incomplete" },
+// { _id: 6 }
+// ])
+
+// juntar os dois campos com valores em comum com $lookup:
+
+// db.orders.aggregate([
+//   {
+//     $lookup: {
+//       from: "inventory",
+//       localField: "item",
+//       foreignField: "sku",
+//       as: "inventory_docs",
+//     },
+//   },
+// ]);
+
+// use('agg_example');
+// db.clients.insertMany([
+//   { name: "Dave America", State: "Florida" },
+//   { name: "Ned Flanders", State: "Alasca" },
+//   { name: "Mark Zuck", State: "Texas" },
+//   { name: "Edna Krabappel", State: "Montana" },
+//   { name: "Arnold Schuz", State: "California" },
+//   { name: "Lisa Simpson", State: "Florida" },
+//   { name: "Barney Gumble", State: "Texas" },
+//   { name: "Homer Simpson", State: "Florida" },
+// ]);
+
+// Selecione todos os clientes com as suas respectivas transações feitas;
+
+// use('agg_example')
+// db.transactions.find()
+// use('agg_example');
+// db.clients.aggregate([
+//   {
+//     $lookup: {
+//       from: "transactions",
+//       localField: "name",
+//       foreignField: "from",
+//       as: "transactions_history"
+//     },
+//   },
+// ]);
+
+// Selecione quatro clientes com as suas respectivas transações recebidas;
+// use('agg_example');
+// db.clients.aggregate([
+//   {
+//     $lookup: {
+//       from: "transactions",
+//       localField: "name",
+//       foreignField: "to",
+//       as: "transactions_history"
+//     }
+//   },
+//   { $limit: 4 }
+// ]);
+
+// Selecione todos os cliente do estado da "Florida" e suas respectivas transações recebidas.
+
+// use('agg_example');
+// db.clients.aggregate([
+//   {
+//     $match: { State: "Florida" }
+//   },
+//   {
+//     $lookup: {
+//       from: "transactions",
+//       localField: "name",
+//       foreignField: "to",
+//       as: "transactions_history",
+//     },
+//   },
+// ]);
+
+
