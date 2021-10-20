@@ -1,0 +1,182 @@
+// use('example_db');
+// db.warehouses.insertMany([
+//   { _id: 1, stock_item: "almonds", warehouse: "A", instock: 120 },
+//   { _id: 2, stock_item: "pecans", warehouse: "A", instock: 80 },
+//   { _id: 3, stock_item: "almonds", warehouse: "B", instock: 60 },
+//   { _id: 4, stock_item: "cookies", warehouse: "B", instock: 40 },
+//   { _id: 5, stock_item: "cookies", warehouse: "A", instock: 80 }
+// ]);
+// db.orders.insertMany([
+//   { _id: 1, item: "almonds", price: 12, ordered: 2 },
+//   { _id: 2, item: "pecans", price: 20, ordered: 1 },
+//   { _id: 3, item: "cookies", price: 10, ordered: 60 }
+// ]);
+
+// db.orders.aggregate([
+//   {
+//     $lookup: {
+//       from: "warehouses",
+//       let: { order_item: "$item", order_qty: "$ordered" },
+//       pipeline: [{
+//         $match: {
+//           $expr: {
+//             $and: [
+//               { $eq: ["$stock_item", "$$order_item"] },
+//               { $gte: ["$instock", "$$order_qty"] },
+//             ],
+//           }
+//         }
+//       },
+//       { $project: { stock_item: 0, _id: 0 } },
+//       ],
+//       as: "stockdata"
+//     },
+//   },
+// ]);
+
+
+// Selecione todos os clientes com as suas respectivas transações feitas;
+
+// use('agg_example');
+// db.clients.aggregate([
+//   {
+//     $lookup: {
+//       from: "transactions",
+//       let: {
+//         user_name: "$name",
+//       },
+//       pipeline: [
+//         {
+//           $match: {
+//             $expr: {
+//               $eq: ["$from", "$$user_name"],
+//             },
+//           },
+//         },
+//       ],
+//       as: "transactions",
+//     },
+//   },
+// ]);
+
+// Selecione os quatro primeiros clientes com as suas respectivas transações recebidas ordenados pelo estado em ordem alfabética;
+
+// use('agg_example');
+// db.clients.aggregate([
+//   {
+//     $lookup: {
+//       from: "transactions",
+//       let: { user_name: "$name" },
+//       pipeline: [
+//         {
+//           $match: {
+//             $expr: {
+//               $eq: ["$to", "$$user_name"]
+//             }
+//           }
+//         }
+//       ],
+//       as: "received_transactions",
+//     }
+//   },
+//   {
+//     $sort: { State: 1 },
+//   },
+//   { $limit: 4 },
+// ]);
+
+// Selecione todos os cliente do estado da "Florida" e suas respectivas transações recebidas.
+
+// use('agg_example');
+// db.clients.aggregate([
+//   {
+//     $match: { State: "Florida" },
+//   },
+//   {
+//     $lookup: {
+//       from: "transactions",
+//       let: {
+//         name_user: "$name"
+//       },
+//       pipeline: [
+//         {
+//           $match: {
+//             $expr: {
+//               $eq: ["$to", "$$name_user"]
+//             }
+//           }
+//         }
+//       ],
+//       as: "received_transactions"
+//     }
+//   }
+// ]);
+
+// operador $add:
+
+// use('storage');
+// db.products.insertMany([
+//   { "name": "Ball", "purchase_price": 7.6, "taxes": 1.9, "sale_price": 12.5, "quantity": 5 },
+//   { "name": "Baseball bat", "purchase_price": 18.5, "taxes": 5.3, "sale_price": 39.9, "quantity": 12 },
+//   { "name": "Sneakers", "purchase_price": 10.4, "taxes": 1.50, "sale_price": 14.9, "quantity": 3 },
+//   { "name": "Gloves", "purchase_price": 2.85, "taxes": 0.90, "sale_price": 5.70, "quantity": 34 },
+//   { "name": "Jacket", "purchase_price": 28.9, "taxes": 10.80, "sale_price": 59.9, "quantity": 20 },
+//   { "name": "Mousepad", "purchase_price": 16.6, "taxes": 3.40, "sale_price": 29.9, "quantity": 8 },
+//   { "name": "Monitor", "purchase_price": 119.9, "taxes": 39.20, "sale_price": 240.6, "quantity": 11 },
+// ]);
+
+// use('storage');
+// db.products.aggregate([
+//   {
+//     $project: {
+//       _id: 0,
+//       name: 1,
+//       custoTotal: {
+//         $add: ["$purchase_price", "$taxes"]
+//       }
+//     }
+//   }
+// ])
+
+// use('storage');
+// db.products.aggregate([
+//   {
+//     $project: {
+//       _id: 0,
+//       name: 1,
+//       lucro: {
+//         $subtract: [
+//           "$sale_price",
+//           { $add: ["$purchase_price", "$taxes"] }
+//         ]
+//       }
+//     }
+//   }
+// ])
+
+// use('storage');
+// db.products.aggregate([
+//   {
+//     $project: {
+//       _id: 0,
+//       name: 1,
+//       valorTotal: {
+//         $multiply: ["$purchase_price", "$quantity"]
+//       }
+//     }
+//   }
+// ])
+
+// Calcule o valor total do estoque, considerando que cada produto valha o mesmo que seu preço de venda. Lembre-se da quantidade.
+
+// use('storage');
+// db.products.aggregate([
+//   {
+//     $addFields: {
+//       valorTotalEstoque: {
+//         $multiply: ["$sale_price", "$quantity"]
+//       }
+//     }
+//   }
+// ])
+
