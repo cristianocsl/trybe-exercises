@@ -1,4 +1,6 @@
-Arquivo para ser lido.
+TEXTO
 
-Este é o arquivo que será lido.
+Se vc está lendo isso, então a função do módulo 'fs' conseguiu ler o arquivo.
+
+Deu tudo certo!  o/
 
