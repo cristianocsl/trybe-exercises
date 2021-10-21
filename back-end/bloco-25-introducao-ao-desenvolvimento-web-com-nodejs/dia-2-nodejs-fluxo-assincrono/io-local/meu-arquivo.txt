@@ -1,6 +1,1 @@
-TEXTO
-
-Se vc está lendo isso, então a função do módulo 'fs' conseguiu ler o arquivo.
-
-Deu tudo certo!  o/
-
+Este texto foi incluído com a função writeFile() e sobrescreveu o texto anterior!
