@@ -4,9 +4,10 @@ const readline = require('readline-sync');
 // guarda as informações de importação em objetos. Chave name, explica qual scritp vai rodar. Chave scrip contem o caminho para o script.
 
 const scripts = [
-  { name: 'Calcular IMC', script: './imc.js' },
-  { name: 'Calcular Velocidade Média', script: './velocidade.js' },
-  { name: 'Jogo de adivinhação', script: './sorteio.js' },
+  { name: 'Calcular IMC ', script: './imc.js' },
+  { name: 'Calcular velocidade média ', script: './velocidade.js' },
+  { name: 'Jogo de adivinhação ', script: './sorteio.js' },
+  { name: 'Calcular fatorial ', script: './fatorial.js' },
 ];
 
 let mensagem = scripts
