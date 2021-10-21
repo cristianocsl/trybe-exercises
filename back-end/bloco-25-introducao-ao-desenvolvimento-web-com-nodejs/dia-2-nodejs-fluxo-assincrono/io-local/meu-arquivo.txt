@@ -1,0 +1,4 @@
+Arquivo para ser lido.
+
+Este é o arquivo que será lido.
+
