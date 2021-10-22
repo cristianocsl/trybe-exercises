@@ -31,8 +31,25 @@ describe('Executa a função numNaturalFn', () =>{
         const resposta = numNaturalFn(-2);
 
         expect(resposta).to.be.a('negativo');
-      })
+      });
+    });
 
+    describe('quando o número for igual a 0', () => {
+      describe('a resposta', () => {
+        it('é uma "string"', () => {
+          const resp = numNaturalFn(0)
+
+          expect(resp).to.be.a('string');
+        });
+      });
+
+      describe('a resposta', () => {
+        it('é igual a "neutro"', () => {
+          const resp = numNaturalFn(0);
+
+          expect(resp).to.be.equals('neutro');
+        });
+      });
     });
   });
 });
