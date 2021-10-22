@@ -30,7 +30,7 @@ describe('Executa a função numNaturalFn', () =>{
       it('é igual a "negativo"', () => {
         const resposta = numNaturalFn(-2);
 
-        expect(resposta).to.be.a('negativo');
+        expect(resposta).to.be.equals('negativo');
       });
     });
 
