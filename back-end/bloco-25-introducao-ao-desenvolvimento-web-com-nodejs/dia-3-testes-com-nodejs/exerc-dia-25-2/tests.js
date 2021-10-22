@@ -51,5 +51,21 @@ describe('Executa a função numNaturalFn', () =>{
         });
       });
     });
+
+    describe('quando o valor de entrada não for um número', () => {
+      describe('a resposta é', () => {
+        it('é uma string', () => {
+          const resp = numNaturalFn('aaaa');
+
+          expect(resp).to.be.a('string');
+        });
+
+        it('deve retornar a frase "o valor deve ser um número"', () => {
+          const resp = numNaturalFn('aaaa');
+
+          expect(resp).to.be.equals('o parâmetro deve ser um número');
+        });
+      });
+    });
   });
 });
