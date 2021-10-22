@@ -43,6 +43,6 @@ const fs = require('fs').promises;
 //   .then(() => console.log('Novo arquivo criado e salvo!'))
 //   .catch((err) => console.error(`${err}`));
 
-fs.writeFile('./arq3.txt', 'Adicionei o conteúdo nesse arquivo com a flag wx', { flag: 'w' })
+fs.writeFile('./arq3.txt', 'Adicionei o conteúdo nesse arquivo com a flag w', { flag: 'w' })
   .then(() => console.log('Arquivo salvo'))
   .catch((err) => console.error(`${err}`));
