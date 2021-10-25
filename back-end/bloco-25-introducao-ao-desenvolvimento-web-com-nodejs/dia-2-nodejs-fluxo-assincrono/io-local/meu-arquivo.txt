@@ -1,0 +1,1 @@
+Este texto foi incluído com a função writeFile() com uma arrow function assíncrona e sobrescreveu o texto anterior!
