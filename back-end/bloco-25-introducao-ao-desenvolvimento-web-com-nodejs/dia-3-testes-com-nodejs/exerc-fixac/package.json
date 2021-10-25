@@ -1,0 +1,12 @@
+{
+  "name": "exerc-fixac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha tests"
+  },
+  "author": "Cristiano Lima",
+  "license": "ISC"
+}
