@@ -12,12 +12,14 @@ const recipes = [
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ];
 
-// app.get('/recipes/search', function (req, res) {
-//   const { name, maxPrice, minPrice } = req.query;
-//   const filteredRecipes = recipes.filter((rec) => rec.name.includes(name) && rec.price < parseInt(maxPrice) && rec.price >= minPrice);
+app.get('/recipes/search', function (req, res) {
+  const { name, maxPrice, minPrice } = req.query;
+  // const filteredRecipes = recipes.filter((rec) => rec.name.includes(name));
+  const filteredRecipes = recipes.filter((rec) => rec.name.includes(name) && rec.price < parseInt(maxPrice) && rec.price >= minPrice);
 
-//   res.status(200).json(filteredRecipes);
-// });
+  res.status(200).json(filteredRecipes);
+  // res.send(recipes);
+});
 
 app.get('/validateToken', function (req, res) {
   const token = req.headers.authorization;
