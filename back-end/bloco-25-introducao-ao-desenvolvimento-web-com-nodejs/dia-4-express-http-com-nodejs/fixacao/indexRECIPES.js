@@ -12,6 +12,15 @@ const recipes = [
   { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ];
+app.get('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+
+  const findedId = recipes.find((r) => r.id === parseInt(id));
+
+  if(!findedId) return res.status(404).json({ message: "Receita não encontrada!"});
+
+  return res.status(200).send(findedId);
+});
 
 app.get('/recipes/search', function (req, res) {
   const { name, maxPrice, minPrice } = req.query;
@@ -50,5 +59,18 @@ app.put('/recipes/:id', function (req, res) {
 
   res.status(204).end(); // 204: indica que algo foi atualizado. 'end()': a resposta vai ser retornada sem nenhuma informação.
 });
+
+// MÉTODO DELETE
+
+app.delete('/recipes/:id', function(req, res) {
+  const { id } = req.params;
+  const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id, 10));
+
+  if(recipeIndex === -1) return res.status(404).json({ message: 'Receita não encontrada!' });
+
+  recipes.splice(recipeIndex, 1);
+
+  res.status(204).end(); // 204: requisição foi completada com sucesso.
+})
 
 app.listen(3001, () => console.log('Aplicação ouvindo na porta 3001'));
