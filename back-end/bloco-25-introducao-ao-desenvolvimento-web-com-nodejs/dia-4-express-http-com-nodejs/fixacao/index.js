@@ -1,4 +1,5 @@
 const express = require('express');
+// const { StatusCode } = require('http-status-codes')
 const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
@@ -34,6 +35,20 @@ app.post('/recipes', function (req, res) {
   const { id, name, price } = req.body;
   recipes.push({ id, name, price });
   res.status(201).json({ message: 'Recipe created successfully!' });
+});
+
+// MÉTODO PUT
+
+app.put('/recipes/:id', function (req, res) {
+  const { id } = req.params; // forma de busca
+  const { name, price } = req.body; // conteúdo a serem alterados
+  const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
+
+  if(recipeIndex === -1) return res.status(404).json({ message: 'Receita não encontrada!'});
+
+  recipes[recipeIndex] = { ...recipes[recipeIndex], name, price };
+
+  res.status(204).end(); // 204: indica que algo foi atualizado. 'end()': a resposta vai ser retornada sem nenhuma informação.
 });
 
 app.listen(3001, () => console.log('Aplicação ouvindo na porta 3001'));
