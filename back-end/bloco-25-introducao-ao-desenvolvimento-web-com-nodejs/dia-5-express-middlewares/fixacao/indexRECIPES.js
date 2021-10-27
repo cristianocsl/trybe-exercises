@@ -3,15 +3,28 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
+const authMiddleware = require('./auth-middleware');
 // const cors = require('cors');
-
 // app.use(cors());
+app.get('/open', function (req, res) {
+  res.send('open!');
+});
+
+app.use(authMiddleware);
+
+function validatePrice(req, res, next) {
+  const { price } = req.body;
+  if(!price || price < 0 || price !== 'number') return res.status(400).json({ message: 'Dados inválidos!'});
+
+  next();
+}
 
 const recipes = [
   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
   { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ];
+
 app.get('/recipes/:id', function (req, res) {
   const { id } = req.params;
 
@@ -40,7 +53,7 @@ app.get('/validateToken', function (req, res) {
 
 // MÉTODO POST
 
-app.post('/recipes', function (req, res) {
+app.post('/recipes', validatePrice, function (req, res) {
   const { id, name, price } = req.body;
   recipes.push({ id, name, price });
   res.status(201).json({ message: 'Recipe created successfully!' });
@@ -48,7 +61,7 @@ app.post('/recipes', function (req, res) {
 
 // MÉTODO PUT
 
-app.put('/recipes/:id', function (req, res) {
+app.put('/recipes/:id', validatePrice, function (req, res) {
   const { id } = req.params; // forma de busca
   const { name, price } = req.body; // conteúdo a serem alterados
   const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
