@@ -7,7 +7,7 @@ const authMiddleware = require('./auth-middleware');
 // const cors = require('cors');
 // app.use(cors());
 app.get('/open', function (req, res) {
-  res.send('open!');
+  res.send('Open!');
 });
 
 app.use(authMiddleware);
@@ -24,6 +24,10 @@ const recipes = [
   { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ];
+
+app.get('/recipes', function (req, res) {
+  res.status(200).json(recipes);
+});
 
 app.get('/recipes/:id', function (req, res) {
   const { id } = req.params;
