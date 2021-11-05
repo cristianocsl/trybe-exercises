@@ -48,7 +48,24 @@ const findById = async (id) => {
   });
 };
 
+const create = async (firstName, middleName, lastName) => {
+  return await connection() 
+    .then(
+      (db) => db.collection('authors')
+      .insertOne({ firstName, middleName, lastName})
+    )
+    .then(
+      (result) => getNewAuthor({
+        id: result.insertedId, // Para obter o ID que acabou de ser criado, utilizamos a propriedade insertedId do resultado da chamada de db.collection('authors').insertOne 
+        firstName,
+        middleName,
+        lastName,
+      })
+    )
+}
+
 module.exports = {
   getAll,
   findById,
+  create,
 };
