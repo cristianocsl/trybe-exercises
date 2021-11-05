@@ -22,8 +22,6 @@ const findById = async (id) => {
 }
 
 const isValid = async (title, authorId) => {
-  console.log('author_id',typeof authorId, authorId);
-  console.log('title', typeof title, title);
   if (!title || typeof title !== 'string' || title.length < 3) return false;
   if (!authorId || typeof authorId !== 'number' || !(await Author.findById(authorId))) return false;
 

@@ -1,5 +1,6 @@
 const connection = require('./connection');
 const { ObjectId } = require('mongodb');
+const Author = require('./Author');
 
 const serialize = (book) => {
   const { _id, title, author_id } = book;
@@ -33,8 +34,25 @@ const findById = async (id) => {
   return serialize(book);
 }
 
+const isValid = async (title, authorId) => {
+  if (!title || typeof title !== 'string' || title.length < 3) return false;
+  if (!authorId || typeof authorId !== 'string' || authorId.length !== 24 || !(await Author.findById(authorId))) return false;
+  
+  return true;
+}
+
+const create = async (title, author_id) => {
+  return await connection()
+    .then(
+      (db) => db.collection('books')
+      .insertOne({ title, author_id })
+    );
+}
+
 module.exports = {
   getAll,
   getByAuthorId,
   findById,
+  create,
+  isValid,
 };
