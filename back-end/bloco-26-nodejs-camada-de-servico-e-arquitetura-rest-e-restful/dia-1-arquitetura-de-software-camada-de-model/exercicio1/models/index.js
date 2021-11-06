@@ -8,4 +8,8 @@ app.use(bodyParser.json());
 
 app.post('/user', async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
+  const validation = await User.isValid(firstName, lastName, email, password);
+  if (!validation) res.status(404).json({
+    
+  })
 })
