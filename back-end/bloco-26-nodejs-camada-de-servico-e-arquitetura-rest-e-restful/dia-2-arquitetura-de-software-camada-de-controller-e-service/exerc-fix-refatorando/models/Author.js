@@ -1,18 +1,6 @@
 const connection = require('./connection');
 const { ObjectId } = require('mongodb');
 
-// Cria uma string com o nome completo do autor
-
-
-const getNewAuthor = (authorData) => {
-  const { id, firstName, middleName, lastName } = authorData;
-  
-  const fullName = [firstName, middleName, lastName]
-  .filter((name) => name)
-  .join(' ');
-  
-  return { id, firstName, middleName, lastName, name: fullName };
-};
 
 // Busca todos os autores do banco.
 // método execute: retorna promise. fornece um array com 2 campos: [rows, fields]. o campo fields (segundo campo) contém informações extras sobre a query e não serão utilizadas.
