@@ -10,7 +10,7 @@ const getAll = () => {
     .then(db => db.collection('authors').find().toArray())
     .then((authors) => 
       authors.map(({ _id, firstName, middleName, lastName }) => 
-          getNewAuthor({
+          ({
             id: _id,
             firstName,
             middleName,
@@ -31,18 +31,12 @@ const findById = async (id) => {
 
   const { firstName, middleName, lastName } = authorData;
 
-  return getNewAuthor({
+  return ({
     id, firstName, middleName, lastName,
   });
 };
 
-const isValid = (firstName, middleName, lastName) => {
-  if (!firstName || typeof firstName !== 'string') return false;
-  if (!lastName || typeof lastName !== 'string') return false;
-  if (middleName && typeof middleName !== 'string') return false;
 
-  return true;
-}
 
 const create = async (firstName, middleName, lastName) => {
   return await connection() 
@@ -64,5 +58,4 @@ module.exports = {
   getAll,
   findById,
   create,
-  isValid,
 };
