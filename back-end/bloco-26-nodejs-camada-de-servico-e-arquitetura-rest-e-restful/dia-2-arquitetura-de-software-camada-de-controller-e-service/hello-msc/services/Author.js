@@ -16,9 +16,9 @@ const create = async (firstName, middleName, lastName) => {
       }
     };
   }
+  // Caso o autor não exista e, portanto, possa ser criado chamamos o model e retornamos o resultado
 
-
-  Author.create(firstName, middleName, lastName);
+  return Author.create(firstName, middleName, lastName);
 }
 
 module.exports = {
