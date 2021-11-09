@@ -45,7 +45,7 @@ const create = async (firstName, middleName, lastName) => {
       .insertOne({ firstName, middleName, lastName})
     )
     .then(
-      (result) => getNewAuthor({
+      (result) => ({
         id: result.insertedId, // Para obter o ID que acabou de ser criado, utilizamos a propriedade insertedId do resultado da chamada de db.collection('authors').insertOne 
         firstName,
         middleName,
