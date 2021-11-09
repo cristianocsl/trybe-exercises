@@ -9,8 +9,8 @@ module.exports = (err, req, res, _next) => {
         error: {
           message: err.details[0].message,
         }
-      })
-  }
+      });
+  };
   // Caso não seja um erro do Joi, pode ser um erro de domínio ou um erro inesperado.
   // Construímos, então, um mapa que conecta um erro de domínio a um status HTTP.
   const statusByErrorCode = {
