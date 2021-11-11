@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Author = require('./services/Author');
 const Book = require('./models/Book');
+const BooksController = require('./controllers/BooksController');
 const app = express();
 app.use(bodyParser.json());
 
@@ -27,13 +28,7 @@ app.post('/authors', async (req, res) => {
   res.status(201).json(author);
 });
 
-app.get('/books', async (req, res) => {
-  const { author_id } = req.query;
-  const books = (author_id)
-  ? await Book.getByAuthorId(author_id)
-  : await Book.getAll();
-  res.status(200).json(books);
-});
+app.get('/books', BooksController.getAll);
 
 app.get('/books/:id', async (req, res) => {
   const { id } = req.params;
