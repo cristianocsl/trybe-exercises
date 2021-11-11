@@ -10,6 +10,14 @@ const getAll = rescue(async (req, res) => {
   res.status(200).json(books);
 });
 
+const findById = async (req, res) => {
+  const { id } = req.params;
+  const book = await service.findById(id);
+  if (!book) return res.status(404).json({ message: 'Não encontrado' });
+  res.status(200).json(book);
+}
+
 module.exports = {
   getAll,
+  findById,
 }

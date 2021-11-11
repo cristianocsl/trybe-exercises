@@ -30,12 +30,7 @@ app.post('/authors', async (req, res) => {
 
 app.get('/books', BooksController.getAll);
 
-app.get('/books/:id', async (req, res) => {
-  const { id } = req.params;
-  const book = await Book.findById(id);
-  if (!book) return res.status(404).json({ message: 'Não encontrado' });
-  res.status(200).json(book);
-})
+app.get('/books/:id', BooksController.findById);
 
 app.post('/books', async (req, res) => {
   const { title, author_id } = req.body;
