@@ -15,7 +15,7 @@ const formatUser = (document) => {
 };
 
 const isValid = ({ firstName, lastName, email, password }) => {
-  const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
   const fields = [firstName, lastName, email, password];
 
   if (fields.includes(undefined) || fields.includes(null) || fields.includes('')) return false;
@@ -33,7 +33,17 @@ const create = async ({ firstName, lastName, email, password }) => {
     .then((result) => ({ id: result.insertedId, firstName, lastName, email }));
 }
 
+const findAll = async () => {
+  return await connection()
+    .then(
+      (db) => db
+        .collection('users')
+        .find()
+    );
+};
+
 module.exports = {
   isValid,
   create,
+  findAll,
 }
