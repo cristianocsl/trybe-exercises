@@ -1,5 +1,33 @@
-const connection = require('./connection');
+const Joi = require('joi');
 const { ObjectId } = require('mongodb');
+const connection = require('./connection');
+
+const userSchema = Joi.object({
+  firstName: Joi.string().required(),
+  lastName: Joi.string().required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().min(6).required(),
+}).messages({
+  'any.required': `O campo {
+{: id:"label" }} é obrigatório`,
+  'string.min': `O campo {
+{: id:"label" }} deve ter, pelo menos, {
+{: id:"limit" }} caracteres`,
+  'string.email': `Informe um email válido no campo {
+{: id:"label" }}`,
+});
+
+const isValid = async (userData) => userSchema.validate(userData);
+
+// const isValid = ({ firstName, lastName, email, password }) => {
+//   const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+//   const fields = [firstName, lastName, email, password];
+
+//   if (fields.includes(undefined) || fields.includes(null) || fields.includes('')) return false;
+
+//   return PASSWORD_REGEX.test(password);
+// }
+
  // Função que remove dos documentos da collection 'users', os campos indesejados
 const formatUser = (document) => {
   const {
@@ -14,15 +42,6 @@ const formatUser = (document) => {
     ...user };
   return formattedResult;
 };
-
-const isValid = ({ firstName, lastName, email, password }) => {
-  const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
-  const fields = [firstName, lastName, email, password];
-
-  if (fields.includes(undefined) || fields.includes(null) || fields.includes('')) return false;
-
-  return PASSWORD_REGEX.test(password);
-}
 
 const create = async ({ firstName, lastName, email, password }) => {
   return await connection()
@@ -72,11 +91,7 @@ const userUpdate = async (id, { firstName, lastName, email, password }) => {
         // Repare no uso da opção `returnDocument: after`. Ela faz com que o documento retornado já contenha os dados atualizados.
         // findOneAndUpdate: função do mongodb.
         return db.collection('users')
-        .findOneAndUpdate(
-          { _id: userId },
-          { $set: newData },
-          { returnDocument: after }
-          ).then((result) => result.value)
+        .findOneAndUpdate({ _id: userId }, { $set: newData }, { returnDocument: true }).then((result) => result.value)
       }
     );
   if (!updatedUser) return null;
