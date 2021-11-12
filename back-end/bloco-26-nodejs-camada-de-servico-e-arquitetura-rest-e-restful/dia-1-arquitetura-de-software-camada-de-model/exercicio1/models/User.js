@@ -1,4 +1,5 @@
 const connection = require('./connection');
+const { ObjectId } = require('mongodb');
  // Função que remove dos documentos da collection 'users', os campos indesejados
 const formatUser = (document) => {
   const {
@@ -43,8 +44,25 @@ const findAll = async () => {
     ).then((array) => array.map(formatUser));
 };
 
+const findUserById = async (id) => {
+  // verifica se o id é falso.
+  if (!ObjectId.isValid(id)) return null;
+
+  const user = await connection()
+    .then(
+      (db) => db
+        .collection('users')
+        .findOne(new ObjectId(id))
+    );
+  
+  if (!user) return null;
+
+  return formatUser(user);
+};
+
 module.exports = {
   isValid,
   create,
   findAll,
+  findUserById,
 }
