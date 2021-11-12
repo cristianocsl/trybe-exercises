@@ -8,9 +8,9 @@ const createUserSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().min(6).required(),
 }).messages({
-  'any.required': `O campo {{: id:"label" }} é obrigatório`,
-  'string.min': `O campo {: id:"label" } deve ter, pelo menos, {: id:"limit" } caracteres`,
-  'string.email': `Informe um email válido no campo {{: id:"label" }}`,
+  'any.required': `O campo é obrigatório`,
+  'string.min': `O campo deve ter, pelo menos, caracteres`,
+  'string.email': `Informe um email válido no campo`,
 });
 // Depois, exportamos um array de middlewares. O primeiro valida a requisição, o segundo chama o model
 module.exports = [
@@ -27,7 +27,7 @@ module.exports = [
 
     if (!UserModel.isValid({ firstName, lastName, email, password })) {
       // Caso os dados não sejam válidos, nós criamos um novo erro
-      const err = new Error('Invalid data');
+      const err = new Error('Dados inválidos');
       // Atribuímos o status `400 Bad Request` ao erro
       err.status = 400;
       // Iniciamos o fluxo e de erro e encerramos a execução do middleware.
