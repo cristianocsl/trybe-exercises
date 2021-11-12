@@ -38,8 +38,9 @@ const findAll = async () => {
     .then(
       (db) => db
         .collection('users')
-        .find()
-    );
+        .find({})
+        .toArray()
+    ).then((array) => array.map(formatUser));
 };
 
 module.exports = {
