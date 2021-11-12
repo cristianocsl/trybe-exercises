@@ -13,6 +13,8 @@ app.get('/user', middlewares.getAllUsers); // já que o middleware do método PO
 
 app.get('/user/:id', middlewares.findUserById);
 
+app.put('/user/:id', middlewares.updateUser);
+
 app.use(middlewares.error);
 
 app.listen(3000, () => console.log('Ouvindo na porta 3000'));

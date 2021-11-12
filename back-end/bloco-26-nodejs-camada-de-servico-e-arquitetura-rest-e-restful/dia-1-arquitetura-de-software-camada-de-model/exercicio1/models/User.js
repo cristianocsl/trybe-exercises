@@ -60,9 +60,33 @@ const findUserById = async (id) => {
   return formatUser(user);
 };
 
+const userUpdate = async (id, { firstName, lastName, email, password }) => {
+  if (!ObjectId.isValid(id)) return null;
+
+  const updatedUser = await connection()
+    .then(
+      (db) => {
+        // converte o parâmetro `id` para um `ObjectId` do MongoDB
+        const userId = new ObjectId(id);
+        const newData = { firstName, lastName, email, password};
+        // Repare no uso da opção `returnDocument: after`. Ela faz com que o documento retornado já contenha os dados atualizados.
+        // findOneAndUpdate: função do mongodb.
+        return db.collection('users')
+        .findOneAndUpdate(
+          { _id: userId },
+          { $set: newData },
+          { returnDocument: after }
+          ).then((result) => result.value)
+      }
+    );
+  if (!updatedUser) return null;
+  return formatUser(updatedUser);
+}
+
 module.exports = {
   isValid,
   create,
   findAll,
   findUserById,
+  userUpdate,
 }
