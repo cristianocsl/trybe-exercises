@@ -5,11 +5,11 @@ const getNewAuthor = (authorData) => {
   const { id, firstName, middleName, lastName } = authorData;
 
   const fullName = [firstName, middleName, lastName]
-    .filter((name) => name === firstName)
+    .filter((name) => name) // sem essa linha, quando não há middlename, é inserido um espaço duplo em vez de um único espaço.
     .join(' ');
 
   return {
-    id, firstName, middleName, lastName
+    id, firstName, middleName, lastName, name: fullName,
   };
 };
 

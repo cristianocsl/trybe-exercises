@@ -6,7 +6,7 @@ const findById = async (id) => {
   // Solicitamos que o model realize a busca no banco
   const author = await Author.findById(id);
 
-  if (!author) {
+  if (!author) { // aqui, a camada service comunica ao controller toda vez que algum erro de domínio acontece. Erro de domínio é gerado quando uma regra de negócio não é atendida.
     return {
       error: {
         code: 'notFound',
