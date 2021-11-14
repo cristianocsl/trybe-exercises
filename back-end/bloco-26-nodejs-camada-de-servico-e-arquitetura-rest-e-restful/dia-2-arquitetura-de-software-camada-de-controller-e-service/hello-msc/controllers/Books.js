@@ -10,6 +10,18 @@ const getAll = rescue(
   }
 );
 
+const findById = rescue(
+  async (req, res, next) => {
+    const { id } = req.params;
+    const book = await BookService.findById(id);
+
+    if (book.error) return next(book.error);
+
+    res.status(200).json(book);
+  }
+);
+
 module.exports = {
   getAll,
+  findById,
 }

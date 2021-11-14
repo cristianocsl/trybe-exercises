@@ -13,6 +13,7 @@ app.get('/authors/:id', Author.findById);
 app.post('/authors', Author.create);
 
 app.get('/books', Book.getAll);
+app.get('/books/:id', Book.findById);
 
 app.use(errorMiddleware);
 
