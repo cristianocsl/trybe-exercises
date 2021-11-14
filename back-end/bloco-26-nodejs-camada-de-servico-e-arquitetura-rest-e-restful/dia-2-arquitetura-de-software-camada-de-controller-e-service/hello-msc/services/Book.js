@@ -1,7 +1,7 @@
 const AuthorModels = require('../models/Author');
 const BookModels = require('../models/Book');
 
-const getAll = async () => BookModels.getAll();
+const getAll = async () => await BookModels.getAll();
 
 const findById = async (id) => {
   const book = await BookModels.findById(id);
