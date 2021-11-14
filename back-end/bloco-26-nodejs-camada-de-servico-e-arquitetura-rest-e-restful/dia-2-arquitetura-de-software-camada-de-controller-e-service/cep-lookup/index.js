@@ -7,6 +7,11 @@ app.get('/ping', (req, res) => {
   res.status(200).json({ message: 'pong!' });
 });
 
+// app.get('/cep/:cep', (req, res) => {
+//   const { cep } = req.params;
+
+// })
+
 
 
 app.listen(PORT, () => console.log(`Ouvindo na porta ${PORT}`));
