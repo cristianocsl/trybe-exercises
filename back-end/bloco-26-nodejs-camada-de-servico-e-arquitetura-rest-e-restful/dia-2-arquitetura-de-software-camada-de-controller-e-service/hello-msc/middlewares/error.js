@@ -1,4 +1,4 @@
-module.exports = (err, req, res, _next) => {
+module.exports = (err, _req, res, _next) => {
   // Qualquer erro será recebido sempre por esse middleware, então a primeira coisa que fazemos é identificar qual o tipo do erro.
   // Se for um erro do Joi, sabemos que trata-se de um erro de validação
   if (err.isJoi) {

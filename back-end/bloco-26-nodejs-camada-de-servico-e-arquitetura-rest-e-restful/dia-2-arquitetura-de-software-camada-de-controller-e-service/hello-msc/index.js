@@ -14,6 +14,7 @@ app.post('/authors', Author.create);
 
 app.get('/books', Book.getAll);
 app.get('/books/:id', Book.findById);
+app.post('/books', Book.create);
 
 app.use(errorMiddleware);
 
