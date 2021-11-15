@@ -7,11 +7,32 @@ const getAll = async() => {
   return ceps
 }
 
-const cepIsValid = async(cep) => {
-  const CEP_REGEX = /\d{5}-?\d{3}/;
-  return CEP_REGEX.test(cep);
+const CEP_REGEX = /\d{5}-?\d{3}/;
+
+const formatCep = (cep) => {
+  if (CEP_REGEX.test(cep)) return cep;
+  
+  // Caso não esteja formatado, utiliza regex para adicionar a formatação
+  return cep.replace(/(\d{5})(\d{3})/, '$1 - $2');
+}
+
+const getNewCep = ({ cep, logradouro, bairro, localidade, uf }) => ({
+  cep: formatCep(cep), logradouro, bairro, localidade, uf,
+});
+
+const findAddressByCep = async (cepSearched) => {
+  const treatedCep = cepSearched.replace('-', '');
+  
+  const query = 'SELECT cep, logradouro, bairro, localidade, ufFROM cep_lookup.ceps WHERE cep = ?';
+  
+  const [result] = await connection.execute(query, [treatedCep]);
+  
+  if (result.length === 0) return null;
+  
+  return getNewCep(result);
 }
 
 module.exports = {
   getAll,
+  findAddressByCep,
 }

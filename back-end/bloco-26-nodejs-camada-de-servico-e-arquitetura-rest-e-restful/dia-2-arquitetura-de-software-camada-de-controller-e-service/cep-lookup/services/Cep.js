@@ -1,0 +1,31 @@
+const CepModels = require('../models/Cep');
+
+const CEP_REGEX = /\d{5}-?\d{3}/;
+
+const findAddressByCep = async (cep) => {
+  // Valida o CEP e em caso dele ser falso, retorna uma erro
+  
+  if (!CEP_REGEX.test(cep)) return {
+    error: {
+      code: 'invalidData',
+      message: 'CEP inválido,'
+    },
+  };
+  
+  const CEP = await CepModels.findAddressByCep(cep);
+
+  if (!cep) {
+    return {
+      error: {
+        code: 'notFound',
+        message: 'CEP não encontrado',
+      }
+    }
+  }
+
+  return CEP;
+};
+
+module.exports = {
+  findAddressByCep,
+}
