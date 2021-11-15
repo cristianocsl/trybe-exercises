@@ -1,4 +1,4 @@
-const recue = require('express-rescue');
+const rescue = require('express-rescue');
 const CepService = require('../services/Cep');
 
 const findAddressByCep = rescue(

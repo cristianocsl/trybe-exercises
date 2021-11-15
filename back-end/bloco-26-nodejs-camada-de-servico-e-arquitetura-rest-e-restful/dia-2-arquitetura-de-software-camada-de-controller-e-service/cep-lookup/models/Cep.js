@@ -32,6 +32,10 @@ const findAddressByCep = async (cepSearched) => {
   return getNewCep(result);
 }
 
+const create = async ({ cep, logradouro, bairro, localidade }) => {
+  
+}
+
 module.exports = {
   getAll,
   findAddressByCep,
