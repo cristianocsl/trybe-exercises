@@ -9,7 +9,7 @@ const getAll = async() => {
 
 const CEP_REGEX = /\d{5}-?\d{3}/;
 
-const formatCep = (cep) => {
+const formatCepOut = (cep) => {
   if (CEP_REGEX.test(cep)) return cep;
   
   // Caso não esteja formatado, utiliza regex para adicionar a formatação
@@ -17,13 +17,15 @@ const formatCep = (cep) => {
 }
 
 const getNewCep = ({ cep, logradouro, bairro, localidade, uf }) => ({
-  cep: formatCep(cep), logradouro, bairro, localidade, uf,
+  cep: formatCepOut(cep), logradouro, bairro, localidade, uf,
 });
 
+const formatCepIn = (cep) => cep.replace('-', '');
+
 const findAddressByCep = async (cepSearched) => {
-  const treatedCep = cepSearched.replace('-', '');
+  const treatedCep = formatCepIn(cepSearched);
   
-  const query = 'SELECT cep, logradouro, bairro, localidade, ufFROM cep_lookup.ceps WHERE cep = ?';
+  const query = 'SELECT cep, logradouro, bairro, localidade, uf FROM cep_lookup.ceps WHERE cep = ?';
   
   const [result] = await connection.execute(query, [treatedCep]);
   
@@ -33,7 +35,22 @@ const findAddressByCep = async (cepSearched) => {
 }
 
 const create = async ({ cep, logradouro, bairro, localidade }) => {
+  const cepIn = CEP_REGEX.test(cep) ? formatCepIn(cep) : cep;
   
+
+  const query = 'INSERT INTO cep_lookup.ceps (cep, logradouro, bairro, localidade) VALUES (?,?,?,?)';
+
+  const [result] = await connection.execute(query,[cepIn, logradouro, bairro, localidade]);
+
+  if (result.length === 0) return null;
+
+  return {
+    cep: formatCepOut(cep),
+    logradouro,
+    bairro,
+    localidade,
+    uf,
+  };
 }
 
 module.exports = {
