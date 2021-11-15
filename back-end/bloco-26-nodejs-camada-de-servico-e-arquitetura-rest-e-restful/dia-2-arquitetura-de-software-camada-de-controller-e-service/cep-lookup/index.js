@@ -7,10 +7,10 @@ app.get('/ping', (req, res) => {
   res.status(200).json({ message: 'pong!' });
 });
 
-// app.get('/cep/:cep', (req, res) => {
-//   const { cep } = req.params;
+app.get('/cep/:cep', (req, res) => {
+  const { cep } = req.params;
 
-// })
+})
 
 
 
