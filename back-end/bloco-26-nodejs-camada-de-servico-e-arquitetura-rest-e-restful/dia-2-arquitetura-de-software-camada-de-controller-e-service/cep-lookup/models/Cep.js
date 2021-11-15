@@ -7,7 +7,7 @@ const getAll = async() => {
   return ceps
 }
 
-const CEP_REGEX = /\d{5}-?\d{3}/;
+const CEP_REGEX = /\d{5}-\d{3}/;
 
 const formatCepOut = (cep) => {
   if (CEP_REGEX.test(cep)) return cep;
@@ -20,7 +20,7 @@ const getNewCep = ({ cep, logradouro, bairro, localidade, uf }) => ({
   cep: formatCepOut(cep), logradouro, bairro, localidade, uf,
 });
 
-const formatCepIn = (cep) => cep.replace('-', '');
+const formatCepIn = (cep) => cep.replace(/-/ig, '');
 
 const findAddressByCep = async (cepSearched) => {
   const treatedCep = formatCepIn(cepSearched);
@@ -34,18 +34,18 @@ const findAddressByCep = async (cepSearched) => {
   return getNewCep(result);
 }
 
-const create = async ({ cep, logradouro, bairro, localidade }) => {
-  const cepIn = CEP_REGEX.test(cep) ? formatCepIn(cep) : cep;
+const create = async ({ cep: rawCep, logradouro, bairro, localidade, uf }) => {
+  const cep = CEP_REGEX.test(rawCep) ? formatCepIn(rawCep) : rawCep;
   
 
-  const query = 'INSERT INTO cep_lookup.ceps (cep, logradouro, bairro, localidade) VALUES (?,?,?,?)';
+  const query = 'INSERT INTO cep_lookup.ceps (cep, logradouro, bairro, localidade, uf) VALUES (?,?,?,?,?)';
 
-  const [result] = await connection.execute(query,[cepIn, logradouro, bairro, localidade]);
+  const [result] = await connection.execute(query,[cep, logradouro, bairro, localidade, uf]);
 
   if (result.length === 0) return null;
 
   return {
-    cep: formatCepOut(cep),
+    cep,
     logradouro,
     bairro,
     localidade,
@@ -56,4 +56,5 @@ const create = async ({ cep, logradouro, bairro, localidade }) => {
 module.exports = {
   getAll,
   findAddressByCep,
+  create,
 }
