@@ -6,7 +6,10 @@ module.exports = (err, _req, res, _netx) => {
   });
   // Verificamos se esse é um erro de domínio
   if (err.code) {
-    const statusByErrorCode = { notFound: 404 }
+    const statusByErrorCode = {
+      notFound: 404,
+      alreadyExists: 409,
+    };
     
       const status = statusByErrorCode[err.code] || 500;
     

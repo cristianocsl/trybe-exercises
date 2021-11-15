@@ -1,11 +1,5 @@
 const connection = require('./connection');
 
-const getAll = async() => {
-  const [ceps] = await connection.execute(
-    'SELECT * FROM cep_lookup.ceps;',
-  )
-  return ceps
-}
 
 const CEP_REGEX = /\d{5}-\d{3}/;
 
@@ -13,7 +7,7 @@ const formatCepOut = (cep) => {
   if (CEP_REGEX.test(cep)) return cep;
   
   // Caso não esteja formatado, utiliza regex para adicionar a formatação
-  return cep.replace(/(\d{5})(\d{3})/, '$1 - $2');
+  return cep.replace(/(\d{5})(\d{3})/, '$1-$2');
 }
 
 const getNewCep = ({ cep, logradouro, bairro, localidade, uf }) => ({
@@ -21,6 +15,16 @@ const getNewCep = ({ cep, logradouro, bairro, localidade, uf }) => ({
 });
 
 const formatCepIn = (cep) => cep.replace(/-/ig, '');
+
+const getAll = async() => {
+  const [result] = await connection.execute(
+    'SELECT * FROM cep_lookup.ceps;',
+  );
+  return result.map(({ cep, ...anothers}) => ({
+    cep: formatCepOut(cep),
+    ...anothers,
+  }));
+}
 
 const findAddressByCep = async (cepSearched) => {
   const treatedCep = formatCepIn(cepSearched);

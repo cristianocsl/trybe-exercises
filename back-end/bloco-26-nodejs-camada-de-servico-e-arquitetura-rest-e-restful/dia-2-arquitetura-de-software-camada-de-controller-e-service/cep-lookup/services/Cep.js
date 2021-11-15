@@ -1,5 +1,7 @@
 const CepModels = require('../models/Cep');
 
+const getAll = async () => CepModels.getAll();
+
 const CEP_REGEX = /\d{5}-?\d{3}/;
 
 const findAddressByCep = async (cep) => {
@@ -42,6 +44,7 @@ const create = async ({ cep, logradouro, bairro, localidade, uf}) => {
 }
 
 module.exports = {
+  getAll,
   findAddressByCep,
   create,
 }
