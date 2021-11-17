@@ -1,4 +1,6 @@
 const connection = require('./connection');
+// const mongodb = require('mongodb');
+const { ObjectId } = require('mongodb');
 
 const add = async (name, brand) => {
   try {
@@ -18,13 +20,10 @@ const add = async (name, brand) => {
 
 const getAll = async () => {
   try {
-    return await connection()
-      .then(
-        (db) => db
-          .collection('products')
-          .find()
-          .toArray()
-      )
+    const db = await connection();
+    const products = await db.collection('products').find().toArray();
+
+    return products;
   } catch (err) {
     console.error(err);
   }
@@ -32,12 +31,17 @@ const getAll = async () => {
 
 const getById = async (id) => {
   try {
-    const [result] = await connection.query('SELECT * FROM products WHERE id = ?', [id]);
-    if (!result.length) return null
-    return result[0];
+    if (!ObjectId.isValid(id)) return null;
+    // solução com then()
+    // return await connection().then((db) => db.collection('products').findOne(ObjectId(id)));
+
+    // solução com await
+    const db = await connection();
+    const products = await db.collection('products').findOne(ObjectId(id));
+    
+    return products;
   } catch (err) {
     console.error(err);
-    return process.exit(1);
   }
 };
 
