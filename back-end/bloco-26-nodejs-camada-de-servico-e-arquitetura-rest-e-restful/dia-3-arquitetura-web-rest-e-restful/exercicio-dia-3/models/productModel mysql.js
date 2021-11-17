@@ -18,15 +18,11 @@ const add = async (name, brand) => {
 
 const getAll = async () => {
   try {
-    return await connection()
-      .then(
-        (db) => db
-          .collection('products')
-          .find()
-          .toArray()
-      )
+    const [rows] = await connection.query('SELECT * FROM products');
+    return rows;
   } catch (err) {
     console.error(err);
+    return process.exit(1);
   }
 };
 
