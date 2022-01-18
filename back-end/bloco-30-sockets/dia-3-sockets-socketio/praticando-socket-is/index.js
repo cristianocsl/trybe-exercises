@@ -35,7 +35,7 @@ require('./sockets/chat')(io);
 
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + './public/chat/chat.html');
 });
 
 http.listen(3000, () => {
