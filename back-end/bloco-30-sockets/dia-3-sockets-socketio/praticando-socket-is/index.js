@@ -17,6 +17,8 @@ require('./sockets/ping')(io);
 
 require('./sockets/chat')(io);
 
+require('./sockets/rooms')(io);
+
 // io.on('connection', (socket) => {
 //   // criamos sempre os eventos dentro de 'connection' 
 //   socket.emit('evento1', 'Que bom que você chegou');
