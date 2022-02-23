@@ -24,7 +24,7 @@ class SalesReport:  # entidade SalesReporter
             },
         ]
 
-    def serialize(self):
+    def serialize_json(self):
         # aqui será gerado o relatório em JSON
         with open(self.export_file, mode="w") as file:
             json.dump(self.build(), file)
@@ -43,5 +43,5 @@ class SalesReport:  # entidade SalesReporter
 
 
 meu_relatorio_de_vendas = SalesReport("meu_relatorio")
-meu_relatorio_de_vendas.serialize()
+meu_relatorio_de_vendas.serialize_json()
 meu_relatorio_de_vendas.serialize_csv()
