@@ -10,7 +10,10 @@ class SalesReport(ABC):
     def build(self):
         """Aqui colocamos a lógica para a entidade 'se criar',
         ou seja, criar um relatório imprimível. Por simplicidade,
-        vamos omitir essa lógica nos exemplos!"""
+        vamos omitir essa lógica nos exemplos!
+        No contexto de Programação Orientada a Objetos,
+        pense que coisas abstratas são coisas criadas
+        para serem especializadas por classes herdeiras!"""
         return [
             {  # este dicionário compõem uma linha
                 "Coluna 1": "Dado 1",
@@ -23,6 +26,11 @@ class SalesReport(ABC):
                 "Coluna 3": "Dado C",
             },
         ]
+
+    """A classe SalesReport define o método serialize para
+    deixar nítido que todo relatório de vendas deve ter
+    uma forma de se serializar, mas ela mesma, por ser
+    geral, não é serializável."""
 
     @abstractmethod
     def serialize(self):
