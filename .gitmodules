@@ -34,3 +34,6 @@
 [submodule "front-end/bloco-18-context-api-e-react-hooks/dia-2-react-hooks-usestate-e-usecontext/front-end/bloco-18-context-api-e-react-hooks/dia-2-react-hooks-usestate-e-usecontext/exercise-tr"]
 	path = front-end/bloco-18-context-api-e-react-hooks/dia-2-react-hooks-usestate-e-usecontext/front-end/bloco-18-context-api-e-react-hooks/dia-2-react-hooks-usestate-e-usecontext/exercise-tr
 	url = git@github.com:tryber/exercise-tryfood.git
+[submodule "back-end/bloco-27-autenticacao-e-upload-de-arquivos/dia-3-nodejs-testando-apis-com-testes-de-integracao/nodejs-jwt-base-project"]
+	path = back-end/bloco-27-autenticacao-e-upload-de-arquivos/dia-3-nodejs-testando-apis-com-testes-de-integracao/nodejs-jwt-base-project
+	url = git@github.com:tryber/nodejs-jwt-base-project.git
