@@ -9,8 +9,8 @@ ordenação.
 
 def merge_sort(array):
     # caso base: se já atingiu a menor porção (1)
-    # ou seja, quando o len(array) == 1
     if len(array) <= 1:
+        # retorne o array
         return array
     # calculo do pivot: índice que indica onde o array será particionado
     # no caso, metade
@@ -24,16 +24,19 @@ def merge_sort(array):
 
 # função auxiliar que realiza a mistura dos dois arrays
 def merge(left, right, merged):
+
     left_cursor, right_cursor = 0, 0
+
     # enquanto nenhumas das partes é percorrida por completo
-    while (
-        left_cursor < len(left)
-        and right_cursor < len(right)
-    ):
+    while left_cursor < len(left) and right_cursor < len(right):
+
         # compare os dois itens das partes e insira no array de mistura o menor
         if left[left_cursor] <= right[right_cursor]:
             merged[left_cursor + right_cursor] = left[left_cursor]
             left_cursor += 1
+        else:
+            merged[left_cursor + right_cursor] = right[right_cursor]
+            right_cursor += 1
     # a iteração acima irá inserir os elementos de forma ordenada
 
     # quando uma das partes termina, devemos garantir
@@ -50,3 +53,6 @@ def merge(left, right, merged):
         merged[left_cursor + right_cursor] = right[right_cursor]
 
     return merged
+
+
+print(merge_sort([100, 4, 6, 33, 56, 67]))
