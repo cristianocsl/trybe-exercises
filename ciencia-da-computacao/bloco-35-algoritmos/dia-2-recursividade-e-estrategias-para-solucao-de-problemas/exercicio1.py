@@ -6,3 +6,13 @@ def count_pares(n):
         if number % 2 == 0:
             counter += 1
     return counter
+
+
+# o mesmo algoritmo sendo recursivo
+def recursive_par(num):
+    if num == 1:
+        return 0
+    elif num % 2 == 0:
+        return 1 + recursive_par(num - 1)
+    else:
+        return recursive_par(num - 1)
