@@ -7,7 +7,7 @@ class MainMemory:
 
     def get(self, index):
         try:
-            return self.loaded_memory[index]
+            return float(self.loaded_memory[index])
         except IndexError:
             return 0
 
