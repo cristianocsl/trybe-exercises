@@ -41,3 +41,19 @@ class HashMap:
     def has(self, id_num):
         address = self.get_address(id_num)
         return self._buckets[address] is not None
+
+
+# Exercício 1: c) Instancie a sua classe HashMap e
+# use os objetos Employee para povoá-la. Imprima na
+# tela o nome da pessoa de id_num = 23 , acessando
+# a informação a partir da HashMap .
+
+employees = [(14, "name1"), (23, "name2"), (10, "name3"), (9, "name4")]
+
+hashmap = HashMap()
+
+for id_num, name in employees:
+    employee = Employee(id_num, name)
+    hashmap.insert(employee)
+
+print(hashmap.get_value(23))
