@@ -18,3 +18,15 @@ print(employee_registry)
 
 employee_registry[10] = "name30"
 print(f"Novo valor do id 10, após a atualização: {employee_registry[10]}")
+
+# só objetos imutáveis podem ser utilizados como chave.
+# Estes são os objetos que após instanciados não podem ser alterados.
+# Em Python, os objetos imutáveis são:
+
+# - int;
+# - float;
+# - string;
+# - tuple;
+# - range;
+# - byte;
+# - frozenset.
