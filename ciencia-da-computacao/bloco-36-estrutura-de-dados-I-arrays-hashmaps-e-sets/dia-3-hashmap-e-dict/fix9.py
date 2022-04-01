@@ -12,6 +12,7 @@ def intersection(listaA, listaB):
     hash_lista_a = {}
     for value in listaA:
         if value not in hash_lista_a:
+            # popular com booleanos é menos custoso para memória
             hash_lista_a[value] = True
     # conferir com a listaB
     list_intersection = [
