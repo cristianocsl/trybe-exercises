@@ -9,6 +9,7 @@
     "car.ts",
     "pizza.ts",
     "usingCar.ts",
+    "pizzaObject.ts",
   ],
   "exclude": ["node_modules", "**/*.spec.ts"],
   "compilerOptions": {
