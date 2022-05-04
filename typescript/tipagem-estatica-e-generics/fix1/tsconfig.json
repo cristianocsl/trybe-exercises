@@ -10,6 +10,11 @@
     "pizza.ts",
     "usingCar.ts",
     "pizzaObject.ts",
+    "PizzaFlavorsTypes.ts",
+    "PizzaCommon.ts",
+    "PizzaVegetarian.ts",
+    "PizzaSugar.ts",
+    "indexPizza.ts",
   ],
   "exclude": ["node_modules", "**/*.spec.ts"],
   "compilerOptions": {
