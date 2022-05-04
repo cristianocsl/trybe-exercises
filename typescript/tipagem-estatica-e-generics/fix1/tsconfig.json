@@ -4,6 +4,11 @@
     "fix1/**/*",
     "index.ts",
     "classes.ts",
+    "hero.ts",
+    "generics.ts",
+    "car.ts",
+    "pizza.ts",
+    "usingCar.ts",
   ],
   "exclude": ["node_modules", "**/*.spec.ts"],
   "compilerOptions": {
